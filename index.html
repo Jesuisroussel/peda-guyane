@@ -142,7 +142,7 @@ nav.defile{background:rgba(11,61,46,.88);backdrop-filter:blur(14px);box-shadow:0
 .exports span{padding:9px 16px;border-radius:12px;font-weight:600;font-size:.9rem;color:#fff}
 
 /* Guyane */
-.fond-foret{background:linear-gradient(180deg,#0B3D2E,#082B20);color:#fff}
+.fond-foret{background:linear-gradient(180deg,rgba(11,61,46,.93),rgba(8,43,32,.96)),url(assets/images/motif-feuilles.jpg) center/460px repeat,#0B3D2E;color:#fff}
 .fond-foret .intro{color:rgba(255,255,255,.75)}
 .fond-foret .surtitre{color:var(--or)}
 .mosaique{display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:520px}
@@ -218,7 +218,7 @@ nav.defile{background:rgba(11,61,46,.88);backdrop-filter:blur(14px);box-shadow:0
 .faq details p{padding-bottom:20px;color:var(--doux)}
 
 /* Appel final */
-.final{background:radial-gradient(80% 120% at 50% 0%,#1F7A4D,#0B3D2E 60%,#061E16);color:#fff;text-align:center;overflow:hidden}
+.final{background:radial-gradient(80% 120% at 50% 0%,rgba(31,122,77,.9),rgba(11,61,46,.94) 60%,rgba(6,30,22,.97)),url(assets/images/motif-feuilles.jpg) center/460px repeat,#0B3D2E;color:#fff;text-align:center;overflow:hidden}
 .final h2{font-size:clamp(2.2rem,5vw,4rem);max-width:820px;margin:0 auto}
 .final .intro{color:rgba(255,255,255,.78)}
 .final .hero-actions{justify-content:center}
@@ -528,7 +528,7 @@ function compter(el){
     el.textContent = fmt(Math.round(cible * (1 - Math.pow(1 - k, 3)))); if (k < 1) requestAnimationFrame(pas); };
   requestAnimationFrame(pas);
 }
-if (P.genere_le) document.getElementById("date-donnees").textContent = new Date(P.genere_le).toLocaleDateString("fr-FR", {day:"numeric", month:"long", year:"numeric"});
+if (P.genere_le) document.getElementById("date-donnees").textContent = new Date(P.genere_le + "T12:00:00").toLocaleDateString("fr-FR", {day:"numeric", month:"long", year:"numeric"});
 
 // Catalogue : filières ou disciplines, avec recherche
 let onglet = "filieres", limite = 12;
