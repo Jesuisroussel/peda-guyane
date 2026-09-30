@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PEDA GUYANE ASSISTANCE – vos cours prêts, conformes au référentiel</title>
+<meta name="description" content="La plateforme des professeurs de Guyane : JARVIS IA construit votre progression, vos séquences, vos cours et vos évaluations à partir du programme officiel. Conçu en Guyane, pensé pour les Outre-mer.">
+<meta property="og:title" content="PEDA GUYANE ASSISTANCE">
+<meta property="og:description" content="Vos cours prêts, conformes au référentiel, adaptés à la Guyane. Pilote dès février 2027.">
+<meta property="og:image" content="assets/promo-poster.jpg">
+<meta name="theme-color" content="#0B3D2E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230B3D2E'/%3E%3Cpath d='M16 6l2.6 6.4 6.9.5-5.3 4.4 1.7 6.7L16 20.3l-5.9 3.7 1.7-6.7-5.3-4.4 6.9-.5z' fill='%23D7263D'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --foret:#0B3D2E; --canopee:#1F7A4D; --or:#F4C430; --etoile:#D7263D; --lagon:#19A7A8;
+  --ocean:#0E4C7A; --sable:#FFF6E5; --corail:#FF7A59; --encre:#0A1F17;
+  --fond:#FFFBF3; --texte:#16261F; --doux:#4E5E56; --carte:#FFFFFF; --bord:rgba(11,61,46,.12);
+  --rayon:22px; --ombre:0 18px 50px -20px rgba(11,61,46,.35);
+  --titre:"Bricolage Grotesque",system-ui,sans-serif; --corps:Inter,system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:var(--corps);color:var(--texte);background:var(--fond);line-height:1.6;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--titre);line-height:1.08;letter-spacing:-.02em}
+h2{font-size:clamp(2rem,4.2vw,3.2rem);font-weight:800}
+h3{font-size:1.25rem;font-weight:700}
+.conteneur{width:min(1180px,100% - 32px);margin-inline:auto}
+section{padding:clamp(72px,10vw,128px) 0;position:relative}
+.surtitre{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--canopee);margin-bottom:18px}
+.surtitre::before{content:"";width:28px;height:2px;background:linear-gradient(90deg,var(--or),var(--etoile))}
+.intro{color:var(--doux);font-size:1.12rem;max-width:640px;margin-top:18px}
+.centre{text-align:center}.centre .intro{margin-inline:auto}
+
+/* Boutons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font-weight:600;text-decoration:none;transition:transform .25s,box-shadow .25s,background .25s;border:0;cursor:pointer;font-size:1rem}
+.btn-or{background:var(--or);color:var(--encre);box-shadow:0 10px 30px -10px rgba(244,196,48,.8)}
+.btn-or:hover{transform:translateY(-2px);box-shadow:0 16px 36px -10px rgba(244,196,48,.9)}
+.btn-verre{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(8px)}
+.btn-verre:hover{background:rgba(255,255,255,.22)}
+.btn-foret{background:var(--foret);color:#fff}
+.btn-foret:hover{transform:translateY(-2px);background:var(--canopee)}
+
+/* Navigation */
+nav{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,box-shadow .3s}
+nav.defile{background:rgba(11,61,46,.88);backdrop-filter:blur(14px);box-shadow:0 8px 30px -12px rgba(0,0,0,.4)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-family:var(--titre);font-weight:800;letter-spacing:-.01em}
+.logo svg{width:34px;height:34px}
+.logo small{display:block;font-family:var(--corps);font-weight:500;font-size:.68rem;opacity:.75;letter-spacing:.06em}
+.nav-liens{display:flex;gap:28px;align-items:center}
+.nav-liens a{color:rgba(255,255,255,.85);text-decoration:none;font-weight:500;font-size:.95rem}
+.nav-liens a:hover{color:var(--or)}
+.nav-liens .btn{padding:10px 18px;color:var(--encre)}
+@media (max-width:860px){.nav-liens a:not(.btn){display:none}}
+
+/* Ouverture */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;color:#fff;padding:120px 0 150px;overflow:hidden;isolation:isolate;
+  background:url(assets/images/hero-canopee.jpg) center/cover,radial-gradient(120% 90% at 80% 10%,#1F7A4D 0%,#0B3D2E 45%,#061E16 100%)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(100deg,rgba(6,30,22,.92) 0%,rgba(6,30,22,.7) 45%,rgba(6,30,22,.25) 100%)}
+.aurore{position:absolute;inset:-20%;z-index:-1;background:
+  radial-gradient(40% 35% at 20% 30%,rgba(25,167,168,.35),transparent 70%),
+  radial-gradient(35% 30% at 75% 65%,rgba(244,196,48,.22),transparent 70%),
+  radial-gradient(30% 25% at 60% 20%,rgba(215,38,61,.18),transparent 70%);
+  filter:blur(30px);animation:aurore 18s ease-in-out infinite alternate}
+@keyframes aurore{to{transform:translate(4%,-3%) rotate(6deg) scale(1.08)}}
+.hero-grille{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+@media (max-width:980px){.hero-grille{grid-template-columns:1fr}}
+.pastille{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 10px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);font-size:.88rem;backdrop-filter:blur(6px)}
+.pastille b{background:var(--etoile);padding:3px 10px;border-radius:999px;font-size:.75rem;letter-spacing:.06em}
+.hero h1{font-size:clamp(2.6rem,6.2vw,5rem);font-weight:800;margin:24px 0 22px}
+.degrade{background:linear-gradient(92deg,var(--or),#FFE38A 40%,var(--corail));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.accroche{font-size:clamp(1.05rem,1.6vw,1.25rem);color:rgba(255,255,255,.85);max-width:560px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.hero-puces{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:34px;color:rgba(255,255,255,.8);font-size:.92rem}
+.hero-puces span::before{content:"✦";color:var(--or);margin-right:8px}
+.video-carte{position:relative;border-radius:26px;overflow:hidden;box-shadow:0 40px 90px -30px rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.18);aspect-ratio:16/9;
+  background:linear-gradient(135deg,#0E4C7A,#0B3D2E 60%,#1F7A4D);transform:perspective(1200px) rotateY(-6deg) rotateX(2deg);transition:transform .6s}
+.video-carte:hover{transform:perspective(1200px) rotateY(0) rotateX(0)}
+.video-carte video{width:100%;height:100%;object-fit:cover}
+.video-vide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;font-family:var(--titre);font-size:1.5rem;font-weight:700}
+.video-vide small{display:block;font-family:var(--corps);font-weight:400;font-size:.9rem;opacity:.7;margin-top:6px}
+.ondes{position:absolute;left:0;right:0;bottom:-2px;height:140px;z-index:0;pointer-events:none}
+.ondes path{animation:onde 12s ease-in-out infinite alternate}
+.ondes path:nth-child(2){animation-duration:16s;animation-direction:alternate-reverse}
+@keyframes onde{to{transform:translateX(-6%)}}
+.feuille{position:absolute;z-index:-1;opacity:.18;animation:flotte 14s ease-in-out infinite}
+@keyframes flotte{50%{transform:translateY(-22px) rotate(8deg)}}
+
+/* Bandeau des filières */
+.bandeau{background:var(--foret);color:#fff;padding:22px 0;overflow:hidden;border-block:1px solid rgba(255,255,255,.08)}
+.bandeau-piste{display:flex;gap:48px;width:max-content;animation:defile 60s linear infinite}
+.bandeau:hover .bandeau-piste{animation-play-state:paused}
+.bandeau-piste span{font-family:var(--titre);font-weight:700;font-size:1.15rem;white-space:nowrap;display:flex;align-items:center;gap:48px}
+.bandeau-piste span::after{content:"★";color:var(--etoile);font-size:.9rem}
+@keyframes defile{to{transform:translateX(-50%)}}
+
+/* Constat */
+.deux{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+@media (max-width:900px){.deux{grid-template-columns:1fr;gap:40px}}
+.photo{border-radius:var(--rayon);aspect-ratio:4/3;box-shadow:var(--ombre);position:relative;overflow:hidden}
+.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(6,30,22,.55))}
+.photo-legende{position:absolute;left:20px;bottom:18px;z-index:1;color:#fff;font-weight:600;font-size:.95rem}
+.ph-prof{background:url(assets/images/prof-preparation.jpg) center/cover,linear-gradient(135deg,#1F7A4D,#0E4C7A)}
+.ph-classe{background:url(assets/images/classe-guyane.jpg) center/cover,linear-gradient(135deg,#19A7A8,#0B3D2E)}
+.ph-atelier{background:url(assets/images/atelier-pro.jpg) center/cover,linear-gradient(135deg,#FF7A59,#0E4C7A)}
+.ph-marche{background:url(assets/images/marche-cayenne.jpg) center/cover,linear-gradient(135deg,#F4C430,#D7263D)}
+.ph-kourou{background:url(assets/images/kourou-fusee.jpg) center/cover,linear-gradient(160deg,#FF7A59,#0E4C7A 70%)}
+.liste-douleur{list-style:none;margin-top:28px;display:grid;gap:14px}
+.liste-douleur li{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border-radius:16px;background:var(--carte);border:1px solid var(--bord)}
+.liste-douleur li::before{content:"";flex:none;width:10px;height:10px;margin-top:8px;border-radius:50%;background:var(--etoile);box-shadow:0 0 0 5px rgba(215,38,61,.15)}
+.chiffre-cle{font-family:var(--titre);font-size:clamp(3rem,7vw,5.5rem);font-weight:800;color:var(--canopee);line-height:1}
+
+/* Étapes */
+.fond-sable{background:var(--sable)}
+.etapes{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:56px;position:relative}
+.etapes::before{content:"";position:absolute;top:34px;left:6%;right:6%;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--lagon),var(--canopee),var(--or),var(--corail),var(--etoile));transform-origin:left;transform:scaleX(var(--prog,0));transition:transform 1.4s cubic-bezier(.2,.8,.2,1)}
+@media (max-width:900px){.etapes{grid-template-columns:1fr}.etapes::before{display:none}}
+.etape{text-align:center;position:relative}
+.etape .num{width:70px;height:70px;margin:0 auto 16px;border-radius:50%;display:grid;place-items:center;background:#fff;border:3px solid var(--canopee);font-family:var(--titre);font-weight:800;font-size:1.4rem;color:var(--foret);box-shadow:var(--ombre);position:relative;z-index:1}
+.etape:nth-child(5) .num{background:var(--or);border-color:var(--or)}
+.etape p{color:var(--doux);font-size:.95rem;margin-top:6px}
+.inscription{margin-top:64px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;align-items:center;font-weight:600}
+.inscription span{padding:12px 20px;border-radius:999px;background:#fff;border:1px solid var(--bord);box-shadow:0 6px 18px -10px rgba(11,61,46,.4)}
+.inscription i{color:var(--etoile);font-style:normal}
+@media (max-width:600px){.inscription{flex-direction:column}.inscription i{transform:rotate(90deg)}}
+
+/* Cartes fonctionnalités */
+.grille-cartes{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:52px}
+.carte{background:var(--carte);border:1px solid var(--bord);border-radius:var(--rayon);padding:28px;transition:transform .35s,box-shadow .35s,border-color .35s;position:relative;overflow:hidden}
+.carte:hover{transform:translateY(-6px);box-shadow:var(--ombre);border-color:transparent}
+.carte::after{content:"";position:absolute;inset:auto -40% -60% auto;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(244,196,48,.25),transparent 70%);opacity:0;transition:opacity .35s}
+.carte:hover::after{opacity:1}
+.icone{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;margin-bottom:18px;color:#fff}
+.icone svg{width:26px;height:26px}
+.carte p{color:var(--doux);margin-top:8px;font-size:.97rem}
+.exports{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:40px}
+.exports span{padding:9px 16px;border-radius:12px;font-weight:600;font-size:.9rem;color:#fff}
+
+/* Guyane */
+.fond-foret{background:linear-gradient(180deg,#0B3D2E,#082B20);color:#fff}
+.fond-foret .intro{color:rgba(255,255,255,.75)}
+.fond-foret .surtitre{color:var(--or)}
+.mosaique{display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:520px}
+.mosaique .photo{aspect-ratio:auto;height:100%}
+.mosaique .photo:first-child{grid-row:span 2}
+@media (max-width:900px){.mosaique{height:auto;grid-template-columns:1fr}.mosaique .photo{aspect-ratio:16/10}.mosaique .photo:first-child{grid-row:auto}}
+.atouts{list-style:none;display:grid;gap:18px;margin-top:30px}
+.atouts li{display:flex;gap:16px}
+.atouts b{display:block;font-family:var(--titre);font-size:1.1rem}
+.atouts span{color:rgba(255,255,255,.72);font-size:.96rem}
+.atouts .puce{flex:none;width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:rgba(244,196,48,.14);color:var(--or)}
+.atouts .puce svg{width:22px;height:22px}
+
+/* Chiffres */
+.chiffres{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px;margin-top:48px}
+.chiffre{background:#fff;border:1px solid var(--bord);border-radius:var(--rayon);padding:26px 20px;text-align:center}
+.chiffre b{display:block;font-family:var(--titre);font-size:clamp(2.4rem,4vw,3.2rem);font-weight:800;background:linear-gradient(135deg,var(--canopee),var(--lagon));-webkit-background-clip:text;background-clip:text;color:transparent}
+.chiffre span{color:var(--doux);font-size:.95rem}
+.source{margin-top:18px;font-size:.82rem;color:var(--doux)}
+
+/* Catalogue */
+.onglets{display:inline-flex;padding:6px;border-radius:999px;background:var(--sable);border:1px solid var(--bord);margin-top:36px}
+.onglets button{border:0;background:none;padding:11px 22px;border-radius:999px;font:600 .95rem var(--corps);cursor:pointer;color:var(--doux)}
+.onglets button[aria-selected=true]{background:var(--foret);color:#fff}
+.recherche{display:block;width:min(520px,100%);margin:20px auto 0;padding:15px 22px;border-radius:999px;border:1px solid var(--bord);font:1rem var(--corps);background:#fff}
+.recherche:focus{outline:3px solid rgba(25,167,168,.35);border-color:var(--lagon)}
+.resultats{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:32px;text-align:left}
+.acces{background:#fff;border:1px solid var(--bord);border-radius:18px;padding:20px 22px;animation:apparait .4s both}
+@keyframes apparait{from{opacity:0;transform:translateY(10px)}}
+.acces h3{font-size:1.05rem}
+.acces .meta{font-size:.82rem;color:var(--canopee);font-weight:600;margin-top:4px}
+.acces ul{margin-top:10px;padding-left:18px;color:var(--doux);font-size:.88rem}
+.niveaux{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.niveaux span{font-size:.78rem;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--sable);color:var(--foret)}
+.plus{margin-top:24px}
+.vide{grid-column:1/-1;text-align:center;color:var(--doux);padding:30px}
+
+/* Tarif */
+.tarif{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:52px;align-items:stretch}
+@media (max-width:900px){.tarif{grid-template-columns:1fr}}
+.prix-carte{border-radius:28px;padding:40px;color:#fff;background:radial-gradient(120% 120% at 100% 0%,#1F7A4D,#0B3D2E 60%);position:relative;overflow:hidden;box-shadow:var(--ombre)}
+.prix-carte::before{content:"★";position:absolute;right:-20px;top:-40px;font-size:220px;color:rgba(215,38,61,.18);line-height:1}
+.prix{font-family:var(--titre);font-size:clamp(3.6rem,8vw,5.6rem);font-weight:800;line-height:1;margin:14px 0 6px}
+.prix small{font-size:1.1rem;font-weight:600;opacity:.8}
+.inclus{list-style:none;margin:26px 0 30px;display:grid;gap:12px}
+.inclus li::before{content:"✓";color:var(--or);font-weight:800;margin-right:10px}
+.regles{display:grid;gap:18px}
+.regle{background:#fff;border:1px solid var(--bord);border-radius:22px;padding:26px}
+.regle .tag{display:inline-block;font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-bottom:12px}
+.regle p{color:var(--doux);margin-top:8px}
+.calcul{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:14px}
+.calcul input{width:100%;accent-color:var(--canopee)}
+.calcul output{font-family:var(--titre);font-size:1.6rem;font-weight:800;color:var(--foret)}
+
+/* Outre-mer */
+.outremer{color:#fff;text-align:center;overflow:hidden;
+  background:url(assets/images/outre-mer.jpg) center/cover,linear-gradient(120deg,#0E4C7A,#19A7A8 55%,#1F7A4D)}
+.outremer::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,76,122,.75),rgba(11,61,46,.85))}
+.outremer .conteneur{position:relative}
+.outremer h2{font-size:clamp(2.2rem,5vw,4rem)}
+.territoires{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:30px}
+.territoires span{padding:9px 18px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);font-weight:500;backdrop-filter:blur(6px)}
+.territoires span.actif{background:var(--or);color:var(--encre);border-color:var(--or);font-weight:700}
+
+/* FAQ */
+.faq{max-width:820px;margin:44px auto 0;display:grid;gap:12px}
+.faq details{background:#fff;border:1px solid var(--bord);border-radius:18px;padding:0 24px;transition:box-shadow .3s}
+.faq details[open]{box-shadow:var(--ombre)}
+.faq summary{cursor:pointer;list-style:none;padding:20px 0;font-weight:600;font-size:1.05rem;display:flex;justify-content:space-between;gap:20px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:1.5rem;line-height:1;color:var(--canopee);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding-bottom:20px;color:var(--doux)}
+
+/* Appel final */
+.final{background:radial-gradient(80% 120% at 50% 0%,#1F7A4D,#0B3D2E 60%,#061E16);color:#fff;text-align:center;overflow:hidden}
+.final h2{font-size:clamp(2.2rem,5vw,4rem);max-width:820px;margin:0 auto}
+.final .intro{color:rgba(255,255,255,.78)}
+.final .hero-actions{justify-content:center}
+
+footer{background:#061E16;color:rgba(255,255,255,.65);padding:40px 0;font-size:.9rem}
+footer .conteneur{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+footer a{color:rgba(255,255,255,.8)}
+
+/* Apparition au défilement */
+.revele{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.revele.vu{opacity:1;transform:none}
+.retard-1{transition-delay:.1s}.retard-2{transition-delay:.2s}.retard-3{transition-delay:.3s}.retard-4{transition-delay:.4s}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .revele{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="conteneur nav-in">
+    <a class="logo" href="#haut" aria-label="PEDA GUYANE ASSISTANCE, accueil">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#F4C430"/><path d="M0 40L40 0v40z" fill="#1F7A4D"/><path d="M20 9l2.9 7.1 7.6.5-5.9 4.9 1.9 7.4L20 24.8l-6.5 4.1 1.9-7.4-5.9-4.9 7.6-.5z" fill="#D7263D"/></svg>
+      <span>PEDA GUYANE<small>ASSISTANCE</small></span>
+    </a>
+    <div class="nav-liens">
+      <a href="#fonctionnement">Fonctionnement</a>
+      <a href="#guyane">La Guyane</a>
+      <a href="#catalogue">Catalogue</a>
+      <a href="#tarif">Tarif</a>
+      <a href="#faq">Questions</a>
+      <a class="btn btn-or" href="#pilote">Rejoindre le pilote</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="haut">
+  <div class="aurore" aria-hidden="true"></div>
+  <svg class="feuille" style="top:14%;right:6%;width:120px" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 5C80 20 95 55 50 95 5 55 20 20 50 5z" fill="#F4C430"/><path d="M50 12v80" stroke="#0B3D2E" stroke-width="3"/></svg>
+  <svg class="feuille" style="bottom:22%;left:3%;width:90px;animation-delay:-5s" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 5C80 20 95 55 50 95 5 55 20 20 50 5z" fill="#19A7A8"/><path d="M50 12v80" stroke="#0B3D2E" stroke-width="3"/></svg>
+  <div class="conteneur hero-grille">
+    <div>
+      <span class="pastille revele"><b>PILOTE</b> Dès février 2027, avec des professeurs de Guyane</span>
+      <h1 class="revele retard-1">Vos cours prêts,<br><span class="degrade">conformes au référentiel.</span></h1>
+      <p class="accroche revele retard-2">Plus le temps de lire le référentiel ? JARVIS IA le fait pour vous. Il construit votre progression, vos séquences, vos cours et vos évaluations à partir du programme officiel, au calendrier et aux couleurs de la Guyane.</p>
+      <div class="hero-actions revele retard-3">
+        <a class="btn btn-or" href="#pilote">Rejoindre le pilote
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-verre" href="#fonctionnement">Voir comment ça marche</a>
+      </div>
+      <div class="hero-puces revele retard-4">
+        <span>Collèges et lycées</span><span>Toutes les voies</span><span>Word, PDF, PowerPoint, Excel</span>
+      </div>
+    </div>
+    <div class="video-carte revele retard-2">
+      <video id="promo" autoplay muted loop playsinline preload="metadata" poster="assets/promo-poster.jpg" aria-label="Vidéo de présentation de PEDA GUYANE ASSISTANCE">
+        <source src="assets/promo.mp4" type="video/mp4">
+      </video>
+      <div class="video-vide" id="video-vide" hidden>JARVIS IA<small>by UNIQUE CONSULTING</small></div>
+    </div>
+  </div>
+  <svg class="ondes" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 70C180 30 360 110 540 80S900 20 1080 60s270 50 360 30 250-30 360-10v120H0z" fill="#19A7A8" opacity=".35"/>
+    <path d="M0 95C200 60 380 130 600 100S980 50 1200 85s200 20 240 15 220-25 360-5v60H0z" fill="#FFFBF3"/>
+  </svg>
+</header>
+
+<div class="bandeau" aria-label="Filières couvertes">
+  <div class="bandeau-piste" id="bandeau"></div>
+</div>
+
+<section id="constat">
+  <div class="conteneur deux">
+    <div class="revele">
+      <span class="surtitre">Le constat</span>
+      <h2>Le métier a changé. Le temps de préparation, lui, a fondu.</h2>
+      <ul class="liste-douleur">
+        <li>Des référentiels de dizaines de pages, rénovés en cours de cycle, qu'on n'a plus le temps de lire.</li>
+        <li>Des soirées et des week-ends à bâtir progression, séquences, cours et évaluations.</li>
+        <li>Des classes plurilingues, des élèves à besoins particuliers, des supports à adapter sans cesse.</li>
+        <li>Des manuels et des exemples pensés pour l'Hexagone, loin de la vie des élèves de Guyane.</li>
+      </ul>
+    </div>
+    <div class="photo ph-prof revele retard-2" role="img" aria-label="Un professeur prépare ses cours dans une salle de classe lumineuse de Cayenne">
+      <span class="photo-legende">Préparer moins longtemps. Enseigner mieux.</span>
+    </div>
+  </div>
+</section>
+
+<section class="fond-sable" id="fonctionnement">
+  <div class="conteneur centre">
+    <span class="surtitre revele">Comment ça marche</span>
+    <h2 class="revele">Du référentiel au cours, en quelques minutes.</h2>
+    <p class="intro revele">JARVIS IA lit le texte officiel de votre filière ou de votre discipline, puis construit tout le chemin jusqu'à la séance, avec vous.</p>
+    <div class="etapes" id="etapes">
+      <div class="etape revele"><div class="num">1</div><h3>Référentiel</h3><p>Le programme officiel en vigueur, lu et découpé pour vous.</p></div>
+      <div class="etape revele retard-1"><div class="num">2</div><h3>Progression</h3><p>L'année calée sur le calendrier scolaire de la Guyane.</p></div>
+      <div class="etape revele retard-2"><div class="num">3</div><h3>Séquences</h3><p>Une situation fil rouge, des objectifs, des évaluations.</p></div>
+      <div class="etape revele retard-3"><div class="num">4</div><h3>Séances</h3><p>Déroulé, activités, différenciation, travail de groupe.</p></div>
+      <div class="etape revele retard-4"><div class="num">5</div><h3>Cours et supports</h3><p>Prêts à imprimer ou à projeter, avec leur corrigé.</p></div>
+    </div>
+    <div class="inscription revele">
+      <span>Votre commune</span><i>→</i><span>Votre établissement</span><i>→</i><span>Votre filière ou votre discipline</span><i>→</i><span style="background:var(--or);border-color:var(--or)">C'est prêt</span>
+    </div>
+  </div>
+</section>
+
+<section id="outils">
+  <div class="conteneur centre">
+    <span class="surtitre revele">Tout ce qu'il vous faut</span>
+    <h2 class="revele">Un assistant pédagogique complet.</h2>
+    <p class="intro revele">Les outils déjà utilisés par des professeurs de Guyane, réunis sur une plateforme en ligne.</p>
+    <div class="grille-cartes">
+      <article class="carte revele"><div class="icone" style="background:var(--canopee)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20V3H6.5A2.5 2.5 0 004 5.5z"/><path d="M4 19.5A2.5 2.5 0 006.5 22H20v-5"/></svg></div><h3>Cours et fiches</h3><p>Fiche professeur, cours élève, version à trous, l'essentiel en une page, exercices et corrigé.</p></article>
+      <article class="carte revele retard-1"><div class="icone" style="background:var(--lagon)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 01-2 2H6a2 2 0 01-2-2V5a2 2 0 012-2h9"/></svg></div><h3>Évaluations</h3><p>Contrôles, QCM, sujets d'examen et situations de CCF, avec barème et grille par compétences.</p></article>
+      <article class="carte revele retard-2"><div class="icone" style="background:var(--ocean)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h3>Diaporamas</h3><p>Des présentations PowerPoint prêtes à projeter, avec les notes du professeur.</p></article>
+      <article class="carte revele retard-3"><div class="icone" style="background:var(--etoile)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7 7 .6-5.3 4.6L18.4 21 12 17.3 5.6 21l1.7-6.8L2 9.6 9 9z"/></svg></div><h3>Devoirs anti-IA</h3><p>Des devoirs ancrés dans la séance vécue, qu'une IA ne peut pas faire à la place de l'élève.</p></article>
+      <article class="carte revele"><div class="icone" style="background:var(--corail)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div><h3>Adapter un document</h3><p>Dys, PAP, tiers-temps, élèves allophones, version simplifiée ou approfondie, en un clic.</p></article>
+      <article class="carte revele retard-1"><div class="icone" style="background:#8A5A00"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></div><h3>Progression annuelle</h3><p>Toute l'année, séquence par séquence, sur les vraies semaines de cours de la Guyane.</p></article>
+      <article class="carte revele retard-2"><div class="icone" style="background:var(--foret)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div><h3>Activités et tableur</h3><p>Banques d'activités, travail de groupe calculé sur votre effectif, fichiers Excel élève et corrigé.</p></article>
+      <article class="carte revele retard-3"><div class="icone" style="background:#5B3FA0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg></div><h3>Appréciations</h3><p>Des appréciations de bulletin rédigées à partir de vos notes, sans nom d'élève transmis à l'IA.</p></article>
+    </div>
+    <div class="exports revele">
+      <span style="background:#2B579A">Word</span><span style="background:#D7263D">PDF</span><span style="background:#C43E1C">PowerPoint</span><span style="background:#1D6F42">Excel</span>
+    </div>
+  </div>
+</section>
+
+<section class="fond-foret" id="guyane">
+  <div class="conteneur deux">
+    <div class="mosaique revele">
+      <div class="photo ph-classe" role="img" aria-label="Une classe de lycée en Guyane"></div>
+      <div class="photo ph-marche" role="img" aria-label="Le marché de Cayenne"></div>
+      <div class="photo ph-kourou" role="img" aria-label="Un décollage de fusée à Kourou, vu de la plage"></div>
+    </div>
+    <div class="revele retard-2">
+      <span class="surtitre">Pensé pour la Guyane</span>
+      <h2>Vos élèves se reconnaissent dans chaque document.</h2>
+      <ul class="atouts">
+        <li><span class="puce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18"/></svg></span><div><b>Le calendrier de la Guyane</b><span>Vacances de Carnaval, jours fériés, vraies semaines de cours : la progression tombe juste.</span></div></li>
+        <li><span class="puce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-12a7 7 0 0114 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><div><b>Des exemples d'ici</b><span>Cayenne, Kourou, Saint-Laurent, le Maroni, les marchés, le spatial, les produits importés par bateau.</span></div></li>
+        <li><span class="puce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8h14M5 12h10M5 16h6"/><path d="M17 14l4 4-4 4"/></svg></span><div><b>Des élèves plurilingues</b><span>Consignes courtes, vocabulaire expliqué, versions adaptées aux élèves allophones.</span></div></li>
+        <li><span class="puce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h3l3-8 4 16 3-8h7"/></svg></span><div><b>Léger, même sur le fleuve</b><span>Des pages sobres, pensées pour les connexions faibles de l'intérieur.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="chiffres">
+  <div class="conteneur centre">
+    <span class="surtitre revele">Le territoire, couvert</span>
+    <h2 class="revele">Tous les établissements de Guyane.</h2>
+    <div class="chiffres">
+      <div class="chiffre revele"><b data-cle="communes">0</b><span>communes</span></div>
+      <div class="chiffre revele retard-1"><b data-cle="lycees">0</b><span>lycées</span></div>
+      <div class="chiffre revele retard-2"><b data-cle="colleges">0</b><span>collèges</span></div>
+      <div class="chiffre revele retard-3"><b data-cle="acces">0</b><span>accès au catalogue</span></div>
+      <div class="chiffre revele retard-4"><b data-cle="textes_verifies">0</b><span>textes officiels vérifiés</span></div>
+    </div>
+    <p class="source revele">Sources : annuaire de l'Éducation nationale, ONISEP, Bulletin officiel, Légifrance, Chlorofil. Données au <span id="date-donnees"></span>.</p>
+  </div>
+</section>
+
+<section class="fond-sable" id="catalogue">
+  <div class="conteneur centre">
+    <span class="surtitre revele">Le catalogue</span>
+    <h2 class="revele">Trouvez votre accès.</h2>
+    <p class="intro revele">Chaque accès s'appuie sur les textes officiels en vigueur à la rentrée 2026, avec leur source.</p>
+    <div class="onglets revele" role="tablist">
+      <button role="tab" aria-selected="true" data-onglet="filieres">Filières</button>
+      <button role="tab" aria-selected="false" data-onglet="disciplines">Disciplines</button>
+    </div>
+    <input class="recherche revele" id="recherche" type="search" placeholder="Rechercher : commerce, maths, 5e, bâtiment…" aria-label="Rechercher un accès">
+    <div class="resultats" id="resultats" aria-live="polite"></div>
+    <button class="btn btn-foret plus" id="plus" hidden>Afficher plus</button>
+  </div>
+</section>
+
+<section id="tarif">
+  <div class="conteneur centre">
+    <span class="surtitre revele">Tarif</span>
+    <h2 class="revele">Un prix simple, un outil pensé pour vous.</h2>
+    <div class="tarif">
+      <div class="prix-carte revele" style="text-align:left">
+        <span class="surtitre" style="color:var(--or)">Abonnement annuel</span>
+        <div class="prix"><span data-prix>700</span> €<small> / an / accès</small></div>
+        <p style="opacity:.8">Par professeur, pour une année scolaire.</p>
+        <ul class="inclus">
+          <li>Tous les outils de création pour votre accès</li>
+          <li>Un large volume de documents chaque mois</li>
+          <li>Référentiels suivis et mis à jour à chaque texte officiel</li>
+          <li>Exports Word, PDF, PowerPoint et Excel</li>
+          <li>Une assistance basée en Guyane</li>
+        </ul>
+        <a class="btn btn-or" href="#pilote">Rejoindre le pilote</a>
+      </div>
+      <div class="regles revele retard-2" style="text-align:left">
+        <div class="regle">
+          <span class="tag" style="background:rgba(31,122,77,.12);color:var(--canopee)">Voies professionnelle et technologique</span>
+          <h3>Un accès = votre filière entière</h3>
+          <p>Tous les diplômes et toutes les classes de la filière. Exemple : commerce, vente et relation client couvre la 2nde, le CAP, le bac pro MCV options A et B et le bac pro Métiers de l'accueil.</p>
+        </div>
+        <div class="regle">
+          <span class="tag" style="background:rgba(25,167,168,.14);color:#0F7778">Matières générales, collège et lycée</span>
+          <h3>Un accès = une discipline à un niveau</h3>
+          <p>Exemple : mathématiques en 2nde générale et technologique. Chaque niveau ou discipline en plus : <span data-prix>700</span> € de plus par an.</p>
+          <div class="calcul">
+            <label for="nb-acces" style="flex:1 1 100%">Nombre d'accès : <b id="nb-affiche">1</b></label>
+            <input id="nb-acces" type="range" min="1" max="4" value="1">
+            <output id="total" for="nb-acces">700 € / an</output>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="outremer" id="outremer">
+  <div class="conteneur">
+    <span class="surtitre revele" style="color:var(--or);justify-content:center">Conçu en Guyane</span>
+    <h2 class="revele">Pensé pour les Outre-mer.</h2>
+    <p class="intro revele" style="color:rgba(255,255,255,.85);margin-inline:auto">Des élèves plurilingues, des calendriers scolaires à part, des réalités que les manuels ignorent : ce que nous construisons pour la Guyane parle à tous les territoires ultramarins.</p>
+    <div class="territoires revele">
+      <span class="actif">Guyane</span><span>Guadeloupe</span><span>Martinique</span><span>La Réunion</span><span>Mayotte</span>
+    </div>
+    <p class="revele" style="margin-top:22px;opacity:.75;font-size:.92rem">Lancement en Guyane. Les autres académies d'Outre-mer viendront ensuite.</p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="conteneur">
+    <div class="centre">
+      <span class="surtitre revele">Questions</span>
+      <h2 class="revele">Vos questions, nos réponses.</h2>
+    </div>
+    <div class="faq">
+      <details class="revele"><summary>Les documents sont-ils vraiment conformes au programme ?</summary><p>Chaque accès s'appuie sur les textes officiels en vigueur (Bulletin officiel, Légifrance, éduscol, Chlorofil), avec leur source et leur date de vérification. Une veille suit les nouveaux textes et les rénovations de diplômes. Vous restez le pédagogue : vous relisez, vous ajustez, vous décidez.</p></details>
+      <details class="revele"><summary>Que couvre exactement un accès ?</summary><p>En voie professionnelle et technologique, un accès couvre toute votre filière : tous ses diplômes et toutes ses classes. En matière générale, au collège comme au lycée, un accès couvre une discipline à un niveau, par exemple le français en 4e. Chaque accès coûte 700 € par an.</p></details>
+      <details class="revele"><summary>Et les données de mes élèves ?</summary><p>La plateforme est réservée aux professeurs. Aucune donnée d'élève n'est demandée, et aucun nom, aucune adresse ni aucune information personnelle n'est transmise à l'IA. Les données seront hébergées dans l'Union européenne.</p></details>
+      <details class="revele"><summary>Mes élèves pourront-ils l'utiliser ?</summary><p>Pas pour le moment : la plateforme est un outil pour les professeurs. Un espace de révision pour les élèves pourra venir plus tard.</p></details>
+      <details class="revele"><summary>L'IA fait-elle le travail à ma place ?</summary><p>Elle vous fait gagner le temps de préparation : lecture du référentiel, structure, premier jet des documents. La pédagogie reste la vôtre. Et pour vos élèves, elle propose justement des devoirs qu'une IA ne peut pas faire à leur place.</p></details>
+      <details class="revele"><summary>Quand pourrai-je l'utiliser ?</summary><p>Un pilote avec des professeurs de Guyane est prévu de février à mars 2027, avant le lancement. Rejoignez-le pour tester la plateforme parmi les premiers et nous aider à l'améliorer.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="pilote">
+  <div class="conteneur">
+    <span class="surtitre revele" style="color:var(--or);justify-content:center">Pilote février – mars 2027</span>
+    <h2 class="revele">Rejoignez les premiers professeurs de Guyane.</h2>
+    <p class="intro revele" style="margin-inline:auto">Dites-nous votre commune, votre établissement et votre filière ou votre discipline. Nous revenons vers vous avant le pilote.</p>
+    <div class="hero-actions revele">
+      <a class="btn btn-or" id="lien-contact" href="#">Je veux participer au pilote</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="conteneur">
+    <span>© <span id="annee"></span> UNIQUE CONSULTING – PEDA GUYANE ASSISTANCE · JARVIS IA by UNIQUE CONSULTING</span>
+    <span><a href="#">Mentions légales</a> · <a href="#">Confidentialité</a></span>
+  </div>
+</footer>
+
+<script src="assets/donnees-site.js"></script>
+<script>
+// Adresse de contact du pilote : à remplacer par l'adresse professionnelle définitive.
+const CONTACT = "thermidor.roussel@gmail.com";
+
+const P = window.PEDA || {chiffres:{}, filieres:[], disciplines:{}, prix:700};
+const fmt = n => n.toLocaleString("fr-FR");
+
+// Navigation : fond au défilement
+const nav = document.getElementById("nav");
+addEventListener("scroll", () => nav.classList.toggle("defile", scrollY > 40), {passive:true});
+
+// Vidéo : si le fichier manque, un visuel de remplacement s'affiche
+const video = document.getElementById("promo");
+video.addEventListener("error", montrerVide, true);
+video.querySelector("source").addEventListener("error", montrerVide);
+function montrerVide(){ video.hidden = true; document.getElementById("video-vide").hidden = false; }
+
+// Bandeau des filières (doublé pour une boucle continue)
+const noms = P.filieres.map(f => f.nom.replace(/^Voie technologique – /, "Série "));
+document.getElementById("bandeau").innerHTML = [...noms, ...noms].map(n => `<span>${n}</span>`).join("");
+
+// Apparition au défilement, compteurs et frise
+const obs = new IntersectionObserver(entrees => entrees.forEach(e => {
+  if (!e.isIntersecting) return;
+  e.target.classList.add("vu");
+  e.target.querySelectorAll?.("[data-cle]").forEach(compter);
+  if (e.target.matches("[data-cle]")) compter(e.target);
+  obs.unobserve(e.target);
+}), {threshold:.15, rootMargin:"0px 0px -40px 0px"});
+document.querySelectorAll(".revele").forEach(el => obs.observe(el));
+new IntersectionObserver(([e], o) => { if (e.isIntersecting){ e.target.style.setProperty("--prog", 1); o.disconnect(); } }, {threshold:.4})
+  .observe(document.getElementById("etapes"));
+
+const lent = matchMedia("(prefers-reduced-motion: reduce)").matches;
+function compter(el){
+  if (el.dataset.fait) return; el.dataset.fait = 1;
+  const cible = P.chiffres[el.dataset.cle] || 0, t0 = performance.now(), duree = lent ? 0 : 1600;
+  const pas = t => { const k = duree ? Math.min(1, (t - t0) / duree) : 1;
+    el.textContent = fmt(Math.round(cible * (1 - Math.pow(1 - k, 3)))); if (k < 1) requestAnimationFrame(pas); };
+  requestAnimationFrame(pas);
+}
+if (P.genere_le) document.getElementById("date-donnees").textContent = new Date(P.genere_le).toLocaleDateString("fr-FR", {day:"numeric", month:"long", year:"numeric"});
+
+// Catalogue : filières ou disciplines, avec recherche
+let onglet = "filieres", limite = 12;
+const res = document.getElementById("resultats"), champ = document.getElementById("recherche");
+const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+const echap = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function afficher(){
+  const q = norm(champ.value.trim());
+  let cartes = [];
+  if (onglet === "filieres") {
+    cartes = P.filieres.filter(f => !q || norm(f.nom + " " + f.diplomes.join(" ")).includes(q)).map(f => `
+      <article class="acces"><h3>${echap(f.nom)}</h3>
+      <div class="meta">${f.etablissements} établissement${f.etablissements > 1 ? "s" : ""} en Guyane · ${f.diplomes.length} texte${f.diplomes.length > 1 ? "s" : ""} officiel${f.diplomes.length > 1 ? "s" : ""}</div>
+      <ul>${f.diplomes.slice(0, 5).map(d => `<li>${echap(d.length > 110 ? d.slice(0, 108) + "…" : d)}</li>`).join("")}${f.diplomes.length > 5 ? `<li>et ${f.diplomes.length - 5} autre(s)</li>` : ""}</ul></article>`);
+  } else {
+    for (const [voie, ds] of Object.entries(P.disciplines)) for (const d of ds) {
+      if (q && !norm(voie + " " + d.nom + " " + d.niveaux.join(" ")).includes(q)) continue;
+      cartes.push(`<article class="acces"><h3>${echap(d.nom)}</h3><div class="meta">${echap(voie)}</div>
+        <div class="niveaux">${d.niveaux.map(n => `<span>${echap(n)}</span>`).join("")}</div></article>`);
+    }
+  }
+  res.innerHTML = cartes.length ? cartes.slice(0, limite).join("") : `<p class="vide">Aucun accès ne correspond. Essayez un autre mot.</p>`;
+  const bouton = document.getElementById("plus");
+  bouton.hidden = cartes.length <= limite;
+  bouton.textContent = `Afficher plus (${cartes.length - limite})`;
+}
+document.querySelectorAll("[data-onglet]").forEach(b => b.addEventListener("click", () => {
+  onglet = b.dataset.onglet; limite = 12;
+  document.querySelectorAll("[data-onglet]").forEach(x => x.setAttribute("aria-selected", x === b));
+  afficher();
+}));
+champ.addEventListener("input", () => { limite = 12; afficher(); });
+document.getElementById("plus").addEventListener("click", () => { limite += 24; afficher(); });
+afficher();
+
+// Tarif
+document.querySelectorAll("[data-prix]").forEach(el => el.textContent = fmt(P.prix));
+const curseur = document.getElementById("nb-acces");
+curseur.addEventListener("input", () => {
+  document.getElementById("nb-affiche").textContent = curseur.value;
+  document.getElementById("total").textContent = fmt(curseur.value * P.prix) + " € / an";
+});
+
+// Contact et année
+const sujet = encodeURIComponent("Pilote PEDA GUYANE ASSISTANCE");
+const corps = encodeURIComponent("Bonjour,\n\nJe souhaite participer au pilote.\nCommune :\nÉtablissement :\nFilière ou discipline (et niveau) :\n\nMerci !");
+document.getElementById("lien-contact").href = `mailto:${CONTACT}?subject=${sujet}&body=${corps}`;
+document.getElementById("annee").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
