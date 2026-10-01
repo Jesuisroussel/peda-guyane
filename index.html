@@ -194,6 +194,10 @@ nav.defile{background:rgba(11,61,46,.88);backdrop-filter:blur(14px);box-shadow:0
 .regle{background:#fff;border:1px solid var(--bord);border-radius:22px;padding:26px}
 .regle .tag{display:inline-block;font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-bottom:12px}
 .regle p{color:var(--doux);margin-top:8px}
+.prix-jour{font-size:1.05rem;margin-bottom:6px}
+.prix-jour b{color:var(--or)}
+.regle.fondateur{background:linear-gradient(135deg,#FFF6D6,#FFFFFF);border-color:rgba(244,196,48,.6)}
+.regle.fondateur .tag{background:var(--etoile);color:#fff}
 .calcul{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:14px}
 .calcul input{width:100%;accent-color:var(--canopee)}
 .calcul output{font-family:var(--titre);font-size:1.6rem;font-weight:800;color:var(--foret)}
@@ -408,8 +412,9 @@ footer a{color:rgba(255,255,255,.8)}
     <div class="tarif">
       <div class="prix-carte revele" style="text-align:left">
         <span class="surtitre" style="color:var(--or)">Abonnement annuel</span>
-        <div class="prix"><span data-prix>700</span> €<small> / an / accès</small></div>
-        <p style="opacity:.8">Par professeur, pour une année scolaire.</p>
+        <div class="prix"><span data-prix>690</span> €<small> / an / accès</small></div>
+        <p class="prix-jour">Soit <b>moins de 2 € par jour</b>, ou <b>3 × <span data-tiers>230</span> € sans frais</b>.</p>
+        <p style="opacity:.8">Par professeur, pour une année scolaire. Sans reconduction automatique.</p>
         <ul class="inclus">
           <li>Tous les outils de création pour votre accès</li>
           <li>Un large volume de documents chaque mois</li>
@@ -420,6 +425,11 @@ footer a{color:rgba(255,255,255,.8)}
         <a class="btn btn-or" href="#pilote">Rejoindre le pilote</a>
       </div>
       <div class="regles revele retard-2" style="text-align:left">
+        <div class="regle fondateur">
+          <span class="tag">Offre fondateur · 30 places</span>
+          <h3>490 € la première année</h3>
+          <p>Pour les professeurs du pilote de février 2027 : votre premier accès à 490 € la première année, puis 690 € garantis pendant 2 ans.</p>
+        </div>
         <div class="regle">
           <span class="tag" style="background:rgba(31,122,77,.12);color:var(--canopee)">Voies professionnelle et technologique</span>
           <h3>Un accès = votre filière entière</h3>
@@ -428,11 +438,11 @@ footer a{color:rgba(255,255,255,.8)}
         <div class="regle">
           <span class="tag" style="background:rgba(25,167,168,.14);color:#0F7778">Matières générales, collège et lycée</span>
           <h3>Un accès = une discipline à un niveau</h3>
-          <p>Exemple : mathématiques en 2nde générale et technologique. Chaque niveau ou discipline en plus : <span data-prix>700</span> € de plus par an.</p>
+          <p>Exemple : mathématiques en 2nde générale et technologique. Chaque niveau ou discipline en plus : <span data-prix>690</span> € de plus par an.</p>
           <div class="calcul">
             <label for="nb-acces" style="flex:1 1 100%">Nombre d'accès : <b id="nb-affiche">1</b></label>
             <input id="nb-acces" type="range" min="1" max="4" value="1">
-            <output id="total" for="nb-acces">700 € / an</output>
+            <output id="total" for="nb-acces">690 € / an</output>
           </div>
         </div>
       </div>
@@ -460,7 +470,7 @@ footer a{color:rgba(255,255,255,.8)}
     </div>
     <div class="faq">
       <details class="revele"><summary>Les documents sont-ils vraiment conformes au programme ?</summary><p>Chaque accès s'appuie sur les textes officiels en vigueur (Bulletin officiel, Légifrance, éduscol, Chlorofil), avec leur source et leur date de vérification. Une veille suit les nouveaux textes et les rénovations de diplômes. Vous restez le pédagogue : vous relisez, vous ajustez, vous décidez.</p></details>
-      <details class="revele"><summary>Que couvre exactement un accès ?</summary><p>En voie professionnelle et technologique, un accès couvre toute votre filière : tous ses diplômes et toutes ses classes. En matière générale, au collège comme au lycée, un accès couvre une discipline à un niveau, par exemple le français en 4e. Chaque accès coûte 700 € par an.</p></details>
+      <details class="revele"><summary>Que couvre exactement un accès ?</summary><p>En voie professionnelle et technologique, un accès couvre toute votre filière : tous ses diplômes et toutes ses classes. En matière générale, au collège comme au lycée, un accès couvre une discipline à un niveau, par exemple le français en 4e. Chaque accès coûte 690 € par an, payables en une fois ou en 3 fois sans frais. Les professeurs du pilote bénéficient de l'offre fondateur : 490 € la première année.</p></details>
       <details class="revele"><summary>Et les données de mes élèves ?</summary><p>La plateforme est réservée aux professeurs. Aucune donnée d'élève n'est demandée, et aucun nom, aucune adresse ni aucune information personnelle n'est transmise à l'IA. Les données seront hébergées dans l'Union européenne.</p></details>
       <details class="revele"><summary>Mes élèves pourront-ils l'utiliser ?</summary><p>Pas pour le moment : la plateforme est un outil pour les professeurs. Un espace de révision pour les élèves pourra venir plus tard.</p></details>
       <details class="revele"><summary>L'IA fait-elle le travail à ma place ?</summary><p>Elle vous fait gagner le temps de préparation : lecture du référentiel, structure, premier jet des documents. La pédagogie reste la vôtre. Et pour vos élèves, elle propose justement des devoirs qu'une IA ne peut pas faire à leur place.</p></details>
@@ -492,7 +502,7 @@ footer a{color:rgba(255,255,255,.8)}
 // Adresse de contact du pilote : à remplacer par l'adresse professionnelle définitive.
 const CONTACT = "thermidor.roussel@gmail.com";
 
-const P = window.PEDA || {chiffres:{}, filieres:[], disciplines:{}, prix:700};
+const P = window.PEDA || {chiffres:{}, filieres:[], disciplines:{}, prix:690};
 const fmt = n => n.toLocaleString("fr-FR");
 
 // Navigation : fond au défilement
@@ -567,6 +577,7 @@ afficher();
 
 // Tarif
 document.querySelectorAll("[data-prix]").forEach(el => el.textContent = fmt(P.prix));
+document.querySelectorAll("[data-tiers]").forEach(el => el.textContent = fmt(Math.round(P.prix / 3)));
 const curseur = document.getElementById("nb-acces");
 curseur.addEventListener("input", () => {
   document.getElementById("nb-affiche").textContent = curseur.value;
