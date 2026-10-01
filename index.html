@@ -82,9 +82,10 @@ nav.defile{background:rgba(11,61,46,.88);backdrop-filter:blur(14px);box-shadow:0
   background:linear-gradient(135deg,#0E4C7A,#0B3D2E 60%,#1F7A4D);transform:perspective(1200px) rotateY(-6deg) rotateX(2deg);transition:transform .6s}
 .video-carte:hover{transform:perspective(1200px) rotateY(0) rotateX(0)}
 .video-carte video{width:100%;height:100%;object-fit:cover}
+.video-vide[hidden]{display:none}
 .video-vide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;font-family:var(--titre);font-size:1.5rem;font-weight:700}
 .video-vide small{display:block;font-family:var(--corps);font-weight:400;font-size:.9rem;opacity:.7;margin-top:6px}
-.ondes{position:absolute;left:0;right:0;bottom:-2px;height:140px;z-index:0;pointer-events:none}
+.ondes{position:absolute;left:0;right:0;bottom:-2px;width:100%;height:140px;z-index:0;pointer-events:none}
 .ondes path{animation:onde 12s ease-in-out infinite alternate}
 .ondes path:nth-child(2){animation-duration:16s;animation-direction:alternate-reverse}
 @keyframes onde{to{transform:translateX(-6%)}}
