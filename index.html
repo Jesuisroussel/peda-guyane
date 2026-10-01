@@ -290,7 +290,7 @@ footer a{color:rgba(255,255,255,.8)}
         <a class="btn btn-verre" href="#fonctionnement">Voir comment ça marche</a>
       </div>
       <div class="hero-puces revele retard-4">
-        <span>De la maternelle au lycée</span><span>Toutes les voies</span><span>Word, PDF, PowerPoint, Excel</span>
+        <span>De la maternelle à l'université</span><span>Toutes les voies</span><span>Word, PDF, PowerPoint, Excel</span>
       </div>
     </div>
     <div class="video-carte revele retard-2">
@@ -390,16 +390,17 @@ footer a{color:rgba(255,255,255,.8)}
 <section id="chiffres">
   <div class="conteneur centre">
     <span class="surtitre revele">Le territoire, couvert</span>
-    <h2 class="revele">De la maternelle au lycée, partout en Guyane.</h2>
+    <h2 class="revele">De la maternelle à l'université, partout en Guyane.</h2>
     <div class="chiffres">
       <div class="chiffre revele"><b data-cle="communes">0</b><span>communes</span></div>
       <div class="chiffre revele"><b data-cle="ecoles">0</b><span>écoles</span></div>
       <div class="chiffre revele retard-1"><b data-cle="lycees">0</b><span>lycées</span></div>
       <div class="chiffre revele retard-2"><b data-cle="colleges">0</b><span>collèges</span></div>
+      <div class="chiffre revele retard-2"><b data-cle="formations_superieur">0</b><span>formations à l'Université de Guyane</span></div>
       <div class="chiffre revele retard-3"><b data-cle="acces">0</b><span>accès au catalogue</span></div>
       <div class="chiffre revele retard-4"><b data-cle="textes_verifies">0</b><span>textes officiels vérifiés</span></div>
     </div>
-    <p class="source revele">Sources : annuaire de l'Éducation nationale, ONISEP, Bulletin officiel, Légifrance, Chlorofil. Données au <span id="date-donnees"></span>.</p>
+    <p class="source revele">Sources : annuaire de l'Éducation nationale, ONISEP, Bulletin officiel, Légifrance, Chlorofil, données de l'enseignement supérieur, Parcoursup, France compétences. Données au <span id="date-donnees"></span>.</p>
   </div>
 </section>
 
@@ -411,8 +412,9 @@ footer a{color:rgba(255,255,255,.8)}
     <div class="onglets revele" role="tablist">
       <button role="tab" aria-selected="true" data-onglet="filieres">Filières</button>
       <button role="tab" aria-selected="false" data-onglet="disciplines">Disciplines</button>
+      <button role="tab" aria-selected="false" data-onglet="superieur">Supérieur</button>
     </div>
-    <input class="recherche revele" id="recherche" type="search" placeholder="Rechercher : commerce, maths, 5e, bâtiment…" aria-label="Rechercher un accès">
+    <input class="recherche revele" id="recherche" type="search" placeholder="Rechercher : commerce, maths, 5e, bâtiment, BUT…" aria-label="Rechercher un accès">
     <div class="resultats" id="resultats" aria-live="polite"></div>
     <button class="btn btn-foret plus" id="plus" hidden>Afficher plus</button>
   </div>
@@ -454,6 +456,11 @@ footer a{color:rgba(255,255,255,.8)}
           <p>Tous les diplômes et toutes les classes de la filière. Exemple : commerce, vente et relation client couvre la 2nde, le CAP, le bac pro MCV options A et B et le bac pro Métiers de l'accueil.</p>
         </div>
         <div class="regle">
+          <span class="tag">Enseignement supérieur · Université de Guyane</span>
+          <h3>Un accès = votre formation entière</h3>
+          <p>À l'Université de Guyane, à l'IUT de Kourou et à l'INSPÉ : une licence, une licence professionnelle, un BUT, un master ou le PASS, avec tous ses parcours et toutes ses années. Exemple : le BUT Réseaux et télécommunications de l'IUT de Kourou couvre le BUT1, le BUT2 et le BUT3. <span data-prix>690</span> € par an, ou 3 × <span data-tiers>230</span> € ; l'offre fondateur s'applique.</p>
+        </div>
+        <div class="regle">
           <span class="tag" style="background:rgba(25,167,168,.14);color:#0F7778">Matières générales, collège et lycée</span>
           <h3>Un accès = une discipline à un niveau</h3>
           <p>Exemple : mathématiques en 2nde générale et technologique. Chaque niveau ou discipline en plus : <span data-prix>690</span> € de plus par an.</p>
@@ -488,7 +495,7 @@ footer a{color:rgba(255,255,255,.8)}
     </div>
     <div class="faq">
       <details class="revele"><summary>Les documents sont-ils vraiment conformes au programme ?</summary><p>Chaque accès s'appuie sur les textes officiels en vigueur (Bulletin officiel, Légifrance, éduscol, Chlorofil), avec leur source et leur date de vérification. Une veille suit les nouveaux textes et les rénovations de diplômes. Vous restez le pédagogue : vous relisez, vous ajustez, vous décidez.</p></details>
-      <details class="revele"><summary>Que couvre exactement un accès ?</summary><p>À l'école, un accès couvre votre classe dans toutes ses matières. En voie professionnelle et technologique, un accès couvre toute votre filière : tous ses diplômes et toutes ses classes. En matière générale, au collège comme au lycée, un accès couvre une discipline à un niveau, par exemple le français en 4e. Chaque accès coûte 690 € par an (390 € pour une classe d'école), payables en une fois ou en 3 fois sans frais. Les professeurs du pilote bénéficient de l'offre fondateur : 490 € la première année.</p></details>
+      <details class="revele"><summary>Que couvre exactement un accès ?</summary><p>À l'école, un accès couvre votre classe dans toutes ses matières. En voie professionnelle et technologique, un accès couvre toute votre filière : tous ses diplômes et toutes ses classes. En matière générale, au collège comme au lycée, un accès couvre une discipline à un niveau, par exemple le français en 4e. Dans l'enseignement supérieur (Université de Guyane, dont l'IUT de Kourou et l'INSPÉ), un accès couvre une formation entière : une licence, un BUT ou un master, avec tous ses parcours et toutes ses années. Chaque accès coûte 690 € par an (390 € pour une classe d'école), payables en une fois ou en 3 fois sans frais. Les professeurs du pilote bénéficient de l'offre fondateur : 490 € la première année.</p></details>
       <details class="revele"><summary>Et les données de mes élèves ?</summary><p>La plateforme est réservée aux professeurs. Aucune donnée d'élève n'est demandée, et aucun nom, aucune adresse ni aucune information personnelle n'est transmise à l'IA. Les données seront hébergées dans l'Union européenne.</p></details>
       <details class="revele"><summary>Mes élèves pourront-ils l'utiliser ?</summary><p>Pas pour le moment : la plateforme est un outil pour les professeurs. Un espace de révision pour les élèves pourra venir plus tard.</p></details>
       <details class="revele"><summary>L'IA fait-elle le travail à ma place ?</summary><p>Elle vous fait gagner le temps de préparation : lecture du référentiel, structure, premier jet des documents. La pédagogie reste la vôtre. Et pour vos élèves, elle propose justement des devoirs qu'une IA ne peut pas faire à leur place.</p></details>
@@ -508,7 +515,7 @@ footer a{color:rgba(255,255,255,.8)}
         <label>Adresse électronique<input name="courriel" type="email" required maxlength="254" autocomplete="email"></label>
         <label>Commune<input name="commune" maxlength="80"></label>
         <label>Établissement<input name="etablissement" maxlength="200"></label>
-        <label class="large">Filière, discipline et niveau, ou classe d'école<input name="acces_souhaite" maxlength="300" placeholder="Ex. : commerce-vente ; maths en 5e ; CE1"></label>
+        <label class="large">Filière, discipline et niveau, classe d'école ou formation du supérieur<input name="acces_souhaite" maxlength="300" placeholder="Ex. : commerce-vente ; maths en 5e ; CE1 ; BUT GEII"></label>
         <label class="large">Message (facultatif)<textarea name="message" rows="3" maxlength="2000"></textarea></label>
         <label class="piege" aria-hidden="true">Site web<input name="site_web" tabindex="-1" autocomplete="off"></label>
       </div>

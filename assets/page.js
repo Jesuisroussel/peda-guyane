@@ -17,8 +17,10 @@ video.addEventListener("error", montrerVide, true);
 video.querySelector("source").addEventListener("error", montrerVide);
 function montrerVide(){ video.hidden = true; document.getElementById("video-vide").hidden = false; }
 
-// Bandeau des filières (doublé pour une boucle continue)
-const noms = P.filieres.map(f => f.nom.replace(/^Voie technologique – /, "Série "));
+// Bandeau des filières (doublé pour une boucle continue) ; le supérieur y figure en une seule mention.
+const SUP = "Enseignement supérieur";
+const noms = P.filieres.filter(f => f.voie !== SUP).map(f => f.nom.replace(/^Voie technologique – /, "Série "));
+if (P.chiffres.formations_superieur) noms.push("Licences, BUT et masters de l'Université de Guyane");
 document.getElementById("bandeau").innerHTML = [...noms, ...noms].map(n => `<span>${echap(n)}</span>`).join("");
 
 // Apparition au défilement, compteurs et frise
@@ -50,8 +52,13 @@ const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 function afficher(){
   const q = norm(champ.value.trim());
   let cartes = [];
-  if (onglet === "filieres") {
-    cartes = P.filieres.filter(f => !q || norm(f.nom + " " + f.diplomes.join(" ")).includes(q)).map(f => `
+  if (onglet === "superieur") {
+    cartes = P.filieres.filter(f => f.voie === SUP && (!q || norm(f.nom + " " + f.diplomes.join(" ") + " " + (f.composantes || []).join(" ")).includes(q))).map(f => `
+      <article class="acces"><h3>${echap(f.nom)}</h3>
+      <div class="meta">${echap((f.composantes || []).join(" ; "))} · ${echap((f.communes || []).join(", "))}</div>
+      <div class="niveaux">${(f.niveaux || []).map(n => `<span>${echap(n)}</span>`).join("")}</div></article>`);
+  } else if (onglet === "filieres") {
+    cartes = P.filieres.filter(f => f.voie !== SUP && (!q || norm(f.nom + " " + f.diplomes.join(" ")).includes(q))).map(f => `
       <article class="acces"><h3>${echap(f.nom)}</h3>
       <div class="meta">${f.etablissements} établissement${f.etablissements > 1 ? "s" : ""} en Guyane · ${f.diplomes.length} texte${f.diplomes.length > 1 ? "s" : ""} officiel${f.diplomes.length > 1 ? "s" : ""}</div>
       <ul>${f.diplomes.slice(0, 5).map(d => `<li>${echap(d.length > 110 ? d.slice(0, 108) + "…" : d)}</li>`).join("")}${f.diplomes.length > 5 ? `<li>et ${f.diplomes.length - 5} autre(s)</li>` : ""}</ul></article>`);
