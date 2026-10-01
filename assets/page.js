@@ -18,8 +18,9 @@ video.querySelector("source").addEventListener("error", montrerVide);
 function montrerVide(){ video.hidden = true; document.getElementById("video-vide").hidden = false; }
 
 // Bandeau des filières (doublé pour une boucle continue) ; le supérieur y figure en une seule mention.
-const SUP = "Enseignement supérieur";
-const noms = P.filieres.filter(f => f.voie !== SUP).map(f => f.nom.replace(/^Voie technologique – /, "Série "));
+const SUP = "Enseignement supérieur", POSTBAC = "Post-bac (lycée)";
+const noms = P.filieres.filter(f => f.voie !== SUP && f.voie !== POSTBAC).map(f => f.nom.replace(/^Voie technologique – /, "Série "));
+if (P.chiffres.formations_postbac) noms.push("BTS, BTSA, classes préparatoires et DCG des lycées");
 if (P.chiffres.formations_superieur) noms.push("Licences, BUT et masters de l'Université de Guyane");
 document.getElementById("bandeau").innerHTML = [...noms, ...noms].map(n => `<span>${echap(n)}</span>`).join("");
 
