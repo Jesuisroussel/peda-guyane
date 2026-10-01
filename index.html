@@ -22,6 +22,7 @@
   --titre:"Bricolage Grotesque",system-ui,sans-serif; --corps:Inter,system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth;overflow-x:clip}
 body{font-family:var(--corps);color:var(--texte);background:var(--fond);line-height:1.6;overflow-x:clip;-webkit-font-smoothing:antialiased}
 img,video{max-width:100%;display:block}
@@ -82,7 +83,6 @@ nav.defile{background:rgba(11,61,46,.88);backdrop-filter:blur(14px);box-shadow:0
   background:linear-gradient(135deg,#0E4C7A,#0B3D2E 60%,#1F7A4D);transform:perspective(1200px) rotateY(-6deg) rotateX(2deg);transition:transform .6s}
 .video-carte:hover{transform:perspective(1200px) rotateY(0) rotateX(0)}
 .video-carte video{width:100%;height:100%;object-fit:cover}
-.video-vide[hidden]{display:none}
 .video-vide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;font-family:var(--titre);font-size:1.5rem;font-weight:700}
 .video-vide small{display:block;font-family:var(--corps);font-weight:400;font-size:.9rem;opacity:.7;margin-top:6px}
 .ondes{position:absolute;left:0;right:0;bottom:-2px;width:100%;height:140px;z-index:0;pointer-events:none}
@@ -554,7 +554,7 @@ function afficher(){
   res.innerHTML = cartes.length ? cartes.slice(0, limite).join("") : `<p class="vide">Aucun accès ne correspond. Essayez un autre mot.</p>`;
   const bouton = document.getElementById("plus");
   bouton.hidden = cartes.length <= limite;
-  bouton.textContent = `Afficher plus (${cartes.length - limite})`;
+  if (!bouton.hidden) bouton.textContent = `Afficher plus (${cartes.length - limite})`;
 }
 document.querySelectorAll("[data-onglet]").forEach(b => b.addEventListener("click", () => {
   onglet = b.dataset.onglet; limite = 12;
