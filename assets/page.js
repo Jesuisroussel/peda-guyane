@@ -3,7 +3,7 @@
 // Adresse de contact du pilote : à remplacer par l'adresse professionnelle définitive.
 const CONTACT = "thermidor.roussel@gmail.com";
 
-const P = window.PEDA || {chiffres:{}, filieres:[], disciplines:{}, prix:690};
+const P = window.ALIZE || {chiffres:{}, filieres:[], disciplines:[], prix:127};
 const fmt = n => n.toLocaleString("fr-FR");
 const echap = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
@@ -64,10 +64,14 @@ function afficher(){
       <div class="meta">${f.etablissements} établissement${f.etablissements > 1 ? "s" : ""} en Guyane · ${f.diplomes.length} texte${f.diplomes.length > 1 ? "s" : ""} officiel${f.diplomes.length > 1 ? "s" : ""}</div>
       <ul>${f.diplomes.slice(0, 5).map(d => `<li>${echap(d.length > 110 ? d.slice(0, 108) + "…" : d)}</li>`).join("")}${f.diplomes.length > 5 ? `<li>et ${f.diplomes.length - 5} autre(s)</li>` : ""}</ul></article>`);
   } else {
-    for (const [voie, ds] of Object.entries(P.disciplines)) for (const d of ds) {
-      if (q && !norm(voie + " " + d.nom + " " + d.niveaux.join(" ")).includes(q)) continue;
-      cartes.push(`<article class="acces"><h3>${echap(d.nom)}</h3><div class="meta">${echap(voie)}</div>
-        <div class="niveaux">${d.niveaux.map(n => `<span>${echap(n)}</span>`).join("")}</div></article>`);
+    // Une carte par offre : la discipline (ou la bivalence, ou l'école) avec toutes ses classes, voie par voie.
+    const META = {discipline: "Un accès : toutes vos classes de l'établissement", bivalence: "Bivalence : vos deux disciplines, un seul accès", ecole: "Un accès : toute l'école"};
+    for (const d of P.disciplines) {
+      const texte = d.nom + " " + d.voies.map(v => v.voie + " " + v.niveaux.join(" ")).join(" ") + " " + d.postbac.join(" ");
+      if (q && !norm(texte).includes(q)) continue;
+      cartes.push(`<article class="acces"><h3>${echap(d.nom)}</h3><div class="meta">${echap(META[d.type] || "")}</div>
+        ${d.voies.map(v => `<div class="niveaux"><b class="voie">${echap(v.voie)}</b>${v.niveaux.map(n => `<span>${echap(n)}</span>`).join("")}</div>`).join("")}
+        ${d.postbac.length ? `<div class="meta">Aussi en post-bac : ${d.postbac.length} formation${d.postbac.length > 1 ? "s" : ""} des lycées (BTS, classes préparatoires…)</div>` : ""}</article>`);
     }
   }
   res.innerHTML = cartes.length ? cartes.slice(0, limite).join("") : `<p class="vide">Aucun accès ne correspond. Essayez un autre mot.</p>`;
@@ -84,17 +88,19 @@ champ.addEventListener("input", () => { limite = 12; afficher(); });
 document.getElementById("plus").addEventListener("click", () => { limite += 24; afficher(); });
 afficher();
 
-// Tarif
+// Tarif : un prix par trimestre et par accès, le même pour tous les accès.
 document.querySelectorAll("[data-prix]").forEach(el => el.textContent = fmt(P.prix));
-document.querySelectorAll("[data-tiers]").forEach(el => el.textContent = fmt(Math.round(P.prix / 3)));
+document.querySelectorAll("[data-prix-an]").forEach(el => el.textContent = fmt(P.prix * 4));
 const curseur = document.getElementById("nb-acces");
-curseur.addEventListener("input", () => {
+function totalTarif(){
   document.getElementById("nb-affiche").textContent = curseur.value;
-  document.getElementById("total").textContent = fmt(curseur.value * P.prix) + " € / an";
-});
+  document.getElementById("total").textContent = fmt(curseur.value * P.prix) + " € / trimestre";
+}
+curseur.addEventListener("input", totalTarif);
+totalTarif();
 
 // Candidature au pilote : envoyée à la plateforme quand elle est en ligne, sinon par courriel pré-rempli.
-// Adresse de la plateforme, à renseigner après la mise en ligne (ex. "https://app.pedaguyane.fr").
+// Adresse de la plateforme, à renseigner après la mise en ligne (ex. "https://app.alizeprof.fr").
 const PLATEFORME = "";
 const formPilote = document.getElementById("form-pilote");
 const retourPilote = document.getElementById("retour-pilote");
@@ -114,7 +120,7 @@ formPilote.addEventListener("submit", async (ev) => {
   } catch {
     // Solution de repli : un courriel pré-rempli avec les réponses.
     const corps = `Bonjour,\n\nJe souhaite participer au pilote.\nNom : ${d.nom}\nCourriel : ${d.courriel}\nCommune : ${d.commune}\nÉtablissement : ${d.etablissement}\nAccès souhaité : ${d.acces_souhaite}\n\n${d.message}`;
-    location.href = `mailto:${CONTACT}?subject=${encodeURIComponent("Pilote PEDA GUYANE ASSISTANCE")}&body=${encodeURIComponent(corps)}`;
+    location.href = `mailto:${CONTACT}?subject=${encodeURIComponent("Pilote ALIZÉ PROF")}&body=${encodeURIComponent(corps)}`;
     retourPilote.textContent = "Votre messagerie s'ouvre avec votre candidature pré-remplie : il ne reste qu'à l'envoyer.";
   } finally { bouton.disabled = false; }
 });

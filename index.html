@@ -3,15 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PEDA GUYANE ASSISTANCE – vos cours prêts, conformes au référentiel</title>
-<meta name="description" content="La plateforme des professeurs de Guyane : elle construit votre progression, vos séquences, vos cours et vos évaluations à partir du programme officiel. Conçu en Guyane, pensé pour les Outre-mer.">
-<meta property="og:title" content="PEDA GUYANE ASSISTANCE">
-<meta property="og:description" content="Vos cours prêts, conformes au référentiel, adaptés à la Guyane. Pilote dès février 2027.">
+<title>ALIZÉ PROF – vos cours prêts, conformes au référentiel</title>
+<meta name="description" content="ALIZÉ PROF, la plateforme des professeurs : avec TOUCAN IA, elle construit votre progression, vos séquences, vos cours et vos évaluations à partir du programme officiel. Née en Guyane, pensée pour tous les territoires.">
+<meta property="og:site_name" content="ALIZÉ PROF">
+<meta property="og:title" content="ALIZÉ PROF – vos cours prêts, conformes au référentiel">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:description" content="Vos cours prêts, conformes au référentiel, avec TOUCAN IA. Née en Guyane, pensée pour tous les territoires. Pilote en Guyane dès février 2027.">
 <meta property="og:image" content="assets/promo-poster.jpg">
+<meta property="og:image:alt" content="ALIZÉ PROF, by UNIQUE CONSULTING">
+<meta name="application-name" content="ALIZÉ PROF">
+<meta name="apple-mobile-web-app-title" content="ALIZÉ PROF">
 <meta name="theme-color" content="#0B3D2E">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230B3D2E'/%3E%3Cpath d='M16 6l2.6 6.4 6.9.5-5.3 4.4 1.7 6.7L16 20.3l-5.9 3.7 1.7-6.7-5.3-4.4 6.9-.5z' fill='%23D7263D'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2319A7A8'/%3E%3Cstop offset='1' stop-color='%231F7A4D'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='40' height='40' rx='12' fill='url(%23g)'/%3E%3Cpath d='M24.5 13.5c.8-5.8 4.6-8.6 10.5-8-.8 5.9-4.6 8.7-10.5 8z' fill='%23F4C430'/%3E%3Cpath d='M26 12.2c2.4-2 4.6-3.6 7-5' stroke='%23B07A00' stroke-width='1' stroke-linecap='round' fill='none'/%3E%3Cg fill='none' stroke='%23fff' stroke-width='3.2' stroke-linecap='round'%3E%3Cpath d='M6 16.5c6-3.2 11-3.2 16 0'/%3E%3Cpath d='M6 23c8-4 16-4 22 .5 2.6 2 1.8 6-1.4 6-2 0-3-1.8-1.9-3.2'/%3E%3Cpath d='M9 30c3.5-1.6 7-1.6 10 0'/%3E%3C/g%3E%3C/svg%3E">
 <!-- Sécurité : aucun script en ligne ni externe. Quand la plateforme sera en ligne, ajouter son adresse
-     (ex. https://app.pedaguyane.fr) à connect-src, en même temps que PLATEFORME dans assets/page.js. -->
+     (ex. https://app.alizeprof.fr) à connect-src, en même temps que PLATEFORME dans assets/page.js. -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="stylesheet" href="assets/polices.css">
@@ -86,6 +92,7 @@ nav.defile{background:rgba(11,61,46,.88);backdrop-filter:blur(14px);box-shadow:0
 .video-carte:hover{transform:perspective(1200px) rotateY(0) rotateX(0)}
 .video-carte video{width:100%;height:100%;object-fit:cover}
 .video-vide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;font-family:var(--titre);font-size:1.5rem;font-weight:700}
+.video-vide svg{width:84px;height:84px;margin-bottom:14px}
 .video-vide small{display:block;font-family:var(--corps);font-weight:400;font-size:.9rem;opacity:.7;margin-top:6px}
 .ondes{position:absolute;left:0;right:0;bottom:-2px;width:100%;height:140px;z-index:0;pointer-events:none}
 .ondes path{animation:onde 12s ease-in-out infinite alternate}
@@ -141,6 +148,12 @@ nav.defile{background:rgba(11,61,46,.88);backdrop-filter:blur(14px);box-shadow:0
 .icone{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;margin-bottom:18px;color:#fff}
 .icone svg{width:26px;height:26px}
 .carte p{color:var(--doux);margin-top:8px;font-size:.97rem}
+.toucan-ia{display:flex;align-items:center;gap:18px;max-width:640px;margin:30px auto 0;padding:16px 22px;border-radius:22px;background:var(--sable);border:1px solid var(--bord);text-align:left}
+.toucan-ia svg{width:72px;height:72px;flex:none}
+.toucan-ia b{display:block;font-family:var(--titre);font-size:1.3rem;color:var(--foret)}
+.toucan-ia span{display:block;font-weight:600;font-size:.9rem;color:var(--canopee)}
+.toucan-ia small{display:block;margin-top:4px;font-size:.92rem;color:var(--doux)}
+@media (max-width:520px){.toucan-ia{flex-direction:column;text-align:center}}
 .exports{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:40px}
 .exports span{padding:9px 16px;border-radius:12px;font-weight:600;font-size:.9rem;color:#fff}
 
@@ -180,6 +193,7 @@ nav.defile{background:rgba(11,61,46,.88);backdrop-filter:blur(14px);box-shadow:0
 .acces ul{margin-top:10px;padding-left:18px;color:var(--doux);font-size:.88rem}
 .niveaux{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
 .niveaux span{font-size:.78rem;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--sable);color:var(--foret)}
+.niveaux .voie{flex:1 1 100%;font-size:.8rem;font-weight:600;color:var(--doux)}
 .plus{margin-top:24px}
 .vide{grid-column:1/-1;text-align:center;color:var(--doux);padding:30px}
 
@@ -189,7 +203,7 @@ nav.defile{background:rgba(11,61,46,.88);backdrop-filter:blur(14px);box-shadow:0
 .prix-carte{border-radius:28px;padding:40px;color:#fff;background:radial-gradient(120% 120% at 100% 0%,#1F7A4D,#0B3D2E 60%);position:relative;overflow:hidden;box-shadow:var(--ombre)}
 .prix-carte::before{content:"★";position:absolute;right:-20px;top:-40px;font-size:220px;color:rgba(215,38,61,.18);line-height:1}
 .prix{font-family:var(--titre);font-size:clamp(3.6rem,8vw,5.6rem);font-weight:800;line-height:1;margin:14px 0 6px}
-.prix small{font-size:1.1rem;font-weight:600;opacity:.8}
+.prix small{font-size:1.1rem;font-weight:600;opacity:.8;white-space:nowrap}
 .inclus{list-style:none;margin:26px 0 30px;display:grid;gap:12px}
 .inclus li::before{content:"✓";color:var(--or);font-weight:800;margin-right:10px}
 .regles{display:grid;gap:18px}
@@ -198,8 +212,6 @@ nav.defile{background:rgba(11,61,46,.88);backdrop-filter:blur(14px);box-shadow:0
 .regle p{color:var(--doux);margin-top:8px}
 .prix-jour{font-size:1.05rem;margin-bottom:6px}
 .prix-jour b{color:var(--or)}
-.regle.fondateur{background:linear-gradient(135deg,#FFF6D6,#FFFFFF);border-color:rgba(244,196,48,.6)}
-.regle.fondateur .tag{background:var(--etoile);color:#fff}
 .calcul{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:14px}
 .calcul input{width:100%;accent-color:var(--canopee)}
 .calcul output{font-family:var(--titre);font-size:1.6rem;font-weight:800;color:var(--foret)}
@@ -260,9 +272,9 @@ footer a{color:rgba(255,255,255,.8)}
 
 <nav id="nav">
   <div class="conteneur nav-in">
-    <a class="logo" href="#haut" aria-label="PEDA GUYANE ASSISTANCE, accueil">
-      <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#F4C430"/><path d="M0 40L40 0v40z" fill="#1F7A4D"/><path d="M20 9l2.9 7.1 7.6.5-5.9 4.9 1.9 7.4L20 24.8l-6.5 4.1 1.9-7.4-5.9-4.9 7.6-.5z" fill="#D7263D"/></svg>
-      <span>PEDA GUYANE<small>ASSISTANCE</small></span>
+    <a class="logo" href="#haut" aria-label="ALIZÉ PROF, accueil">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="alz-nav" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#19A7A8"/><stop offset="1" stop-color="#1F7A4D"/></linearGradient></defs><rect width="40" height="40" rx="12" fill="url(#alz-nav)"/><path d="M24.5 13.5c.8-5.8 4.6-8.6 10.5-8-.8 5.9-4.6 8.7-10.5 8z" fill="#F4C430"/><path d="M26 12.2c2.4-2 4.6-3.6 7-5" stroke="#B07A00" stroke-width="1" stroke-linecap="round" fill="none"/><g fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round"><path d="M6 16.5c6-3.2 11-3.2 16 0"/><path d="M6 23c8-4 16-4 22 .5 2.6 2 1.8 6-1.4 6-2 0-3-1.8-1.9-3.2"/><path d="M9 30c3.5-1.6 7-1.6 10 0"/></g></svg>
+      <span>ALIZÉ PROF<small>by UNIQUE CONSULTING</small></span>
     </a>
     <div class="nav-liens">
       <a href="#fonctionnement">Fonctionnement</a>
@@ -294,10 +306,10 @@ footer a{color:rgba(255,255,255,.8)}
       </div>
     </div>
     <div class="video-carte revele retard-2">
-      <video id="promo" autoplay muted loop playsinline preload="metadata" poster="assets/promo-poster.jpg" aria-label="Vidéo de présentation de PEDA GUYANE ASSISTANCE">
+      <video id="promo" autoplay muted loop playsinline preload="metadata" poster="assets/promo-poster.jpg" aria-label="Vidéo de présentation d'ALIZÉ PROF">
         <source src="assets/promo.mp4" type="video/mp4">
       </video>
-      <div class="video-vide" id="video-vide" hidden>PEDA GUYANE<small>ASSISTANCE</small></div>
+      <div class="video-vide" id="video-vide" hidden><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="alz-video" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#19A7A8"/><stop offset="1" stop-color="#1F7A4D"/></linearGradient></defs><rect width="40" height="40" rx="12" fill="url(#alz-video)"/><path d="M24.5 13.5c.8-5.8 4.6-8.6 10.5-8-.8 5.9-4.6 8.7-10.5 8z" fill="#F4C430"/><path d="M26 12.2c2.4-2 4.6-3.6 7-5" stroke="#B07A00" stroke-width="1" stroke-linecap="round" fill="none"/><g fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round"><path d="M6 16.5c6-3.2 11-3.2 16 0"/><path d="M6 23c8-4 16-4 22 .5 2.6 2 1.8 6-1.4 6-2 0-3-1.8-1.9-3.2"/><path d="M9 30c3.5-1.6 7-1.6 10 0"/></g></svg>ALIZÉ PROF<small>by UNIQUE CONSULTING</small></div>
     </div>
   </div>
   <svg class="ondes" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
@@ -350,7 +362,11 @@ footer a{color:rgba(255,255,255,.8)}
   <div class="conteneur centre">
     <span class="surtitre revele">Tout ce qu'il vous faut</span>
     <h2 class="revele">Un assistant pédagogique complet.</h2>
-    <p class="intro revele">Les outils déjà utilisés par des professeurs de Guyane, réunis sur une plateforme en ligne.</p>
+    <p class="intro revele">Les outils déjà utilisés par des professeurs de Guyane, réunis sur une plateforme en ligne, avec son IA.</p>
+    <div class="toucan-ia revele">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="#19A7A8"/><path d="M8 50h48" stroke="#8A5A00" stroke-width="3" stroke-linecap="round"/><path d="M20 58l3-10 5 2z" fill="#0A1F17"/><path d="M15 47c-3-11 1-25 12-27 8-1.5 13 4 12.5 12-.6 9-8 16.5-18 16.5-2.5 0-4.5-.5-6.5-1.5z" fill="#0A1F17"/><path d="M27 21.5c5-1 9.5 1.8 10.4 6.6-4.4 1.6-9.4-.2-11.6-4.6z" fill="#FFF6E5"/><path d="M33 20.5c8-4.2 18-3.8 25 1.8 1.6 1.3 1.2 3.4-.8 3.6-7.5.8-15.5 2-23 3.2z" fill="#F4C430"/><path d="M45 19c5 .3 9.6 1.4 13 3.3 1.6 1.3 1.2 3.4-.8 3.6l-12 1.5z" fill="#FF7A59"/><path d="M55 21.3c1.3.4 2.4.9 3 1.4 1.6 1.3 1.2 3.4-.8 3.6l-2.4.3z" fill="#D7263D"/><path d="M34 24.4c8-1.6 16-2 23-1.2" stroke="#0A1F17" stroke-width="1" stroke-linecap="round" fill="none" opacity=".5"/><circle cx="30.5" cy="24" r="2.8" fill="#19A7A8"/><circle cx="30.5" cy="24" r="1.3" fill="#0A1F17"/><path d="M17 45.5c3.5 1.6 7 1.4 10-.6-1.4 3.4-6.6 4.4-10 .6z" fill="#D7263D"/></svg>
+      <p><b>TOUCAN IA</b><span>l'IA d'ALIZÉ PROF, by UNIQUE CONSULTING</span><small>Elle lit le référentiel, propose la structure et le premier jet de vos documents. Vous relisez, vous ajustez, vous décidez.</small></p>
+    </div>
     <div class="grille-cartes">
       <article class="carte revele"><div class="icone" style="background:var(--canopee)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20V3H6.5A2.5 2.5 0 004 5.5z"/><path d="M4 19.5A2.5 2.5 0 006.5 22H20v-5"/></svg></div><h3>Cours et fiches</h3><p>Fiche professeur, cours élève, version à trous, l'essentiel en une page, exercices et corrigé.</p></article>
       <article class="carte revele retard-1"><div class="icone" style="background:var(--lagon)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 01-2 2H6a2 2 0 01-2-2V5a2 2 0 012-2h9"/></svg></div><h3>Évaluations</h3><p>Contrôles, QCM, sujets d'examen et situations de CCF, avec barème et grille par compétences.</p></article>
@@ -359,7 +375,7 @@ footer a{color:rgba(255,255,255,.8)}
       <article class="carte revele"><div class="icone" style="background:var(--corail)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div><h3>Adapter un document</h3><p>Dys, PAP, tiers-temps, élèves allophones, version simplifiée ou approfondie, en un clic.</p></article>
       <article class="carte revele retard-1"><div class="icone" style="background:#8A5A00"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></div><h3>Progression annuelle</h3><p>Toute l'année, séquence par séquence, sur les vraies semaines de cours de la Guyane.</p></article>
       <article class="carte revele retard-2"><div class="icone" style="background:var(--foret)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div><h3>Activités et tableur</h3><p>Banques d'activités, travail de groupe calculé sur votre effectif, fichiers Excel élève et corrigé.</p></article>
-      <article class="carte revele retard-3"><div class="icone" style="background:#5B3FA0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg></div><h3>Appréciations</h3><p>Des appréciations de bulletin rédigées à partir de vos notes, sans nom d'élève transmis à l'IA.</p></article>
+      <article class="carte revele retard-3"><div class="icone" style="background:#5B3FA0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg></div><h3>Appréciations</h3><p>Des appréciations de bulletin rédigées à partir de vos notes, sans nom d'élève transmis à TOUCAN IA.</p></article>
     </div>
     <div class="exports revele">
       <span style="background:#2B579A">Word</span><span style="background:#D7263D">PDF</span><span style="background:#C43E1C">PowerPoint</span><span style="background:#1D6F42">Excel</span>
@@ -414,7 +430,7 @@ footer a{color:rgba(255,255,255,.8)}
       <button role="tab" aria-selected="false" data-onglet="disciplines">Disciplines</button>
       <button role="tab" aria-selected="false" data-onglet="superieur">Supérieur</button>
     </div>
-    <input class="recherche revele" id="recherche" type="search" placeholder="Rechercher : commerce, maths, 5e, bâtiment, BUT…" aria-label="Rechercher un accès">
+    <input class="recherche revele" id="recherche" type="search" placeholder="Rechercher : commerce, maths, lettres-histoire, bâtiment, BUT…" aria-label="Rechercher un accès">
     <div class="resultats" id="resultats" aria-live="polite"></div>
     <button class="btn btn-foret plus" id="plus" hidden>Afficher plus</button>
   </div>
@@ -426,10 +442,10 @@ footer a{color:rgba(255,255,255,.8)}
     <h2 class="revele">Un prix simple, un outil pensé pour vous.</h2>
     <div class="tarif">
       <div class="prix-carte revele" style="text-align:left">
-        <span class="surtitre" style="color:var(--or)">Abonnement annuel</span>
-        <div class="prix"><span data-prix>690</span> €<small> / an / accès</small></div>
-        <p class="prix-jour">Soit <b>moins de 2 € par jour</b>, ou <b>3 × <span data-tiers>230</span> € sans frais</b>.</p>
-        <p style="opacity:.8">Par professeur, pour une année scolaire. Sans reconduction automatique.</p>
+        <span class="surtitre" style="color:var(--or)">Abonnement trimestriel</span>
+        <div class="prix"><span data-prix>127</span> €<small> / trimestre / accès</small></div>
+        <p class="prix-jour"><b>Sans engagement, résiliable à tout moment</b>, en ligne, en quelques clics.</p>
+        <p style="opacity:.8">Le même prix pour tous les accès : discipline, filière, formation ou école. Payé tous les 3 mois et reconduit automatiquement ; si vous résiliez, votre accès reste ouvert jusqu'à la fin du trimestre payé. Soit <span data-prix-an>508</span> € sur une année complète.</p>
         <ul class="inclus">
           <li>Tous les outils de création pour votre accès</li>
           <li>Un large volume de documents chaque mois</li>
@@ -441,14 +457,14 @@ footer a{color:rgba(255,255,255,.8)}
       </div>
       <div class="regles revele retard-2" style="text-align:left">
         <div class="regle">
-          <span class="tag" style="background:rgba(244,196,48,.22);color:#7A5B00">École maternelle et élémentaire</span>
-          <h3>Un accès = votre classe, toutes matières : 390 € / an</h3>
-          <p>De la petite section au CM2 : français, mathématiques, questionner le monde, EMC, arts, EPS… Soit 3 × 130 € sans frais. Une classe à double niveau compte pour deux accès.</p>
+          <span class="tag" style="background:rgba(25,167,168,.14);color:#0F7778">Matières générales · collège, lycée, post-bac</span>
+          <h3>Un accès = votre discipline pour toutes vos classes de l'établissement</h3>
+          <p>Exemple : les mathématiques de la 6e à la 3e dans un collège ; de la 2nde à la terminale, et en BTS ou en classe préparatoire, dans un lycée. Vous enseignez dans deux établissements ? Votre accès couvre les classes des deux. Vous changez d'établissement ? Vous gardez votre accès. Deux disciplines différentes, comme mathématiques et physique-chimie, font deux accès.</p>
         </div>
-        <div class="regle fondateur">
-          <span class="tag">Offre fondateur · 30 places</span>
-          <h3>490 € la première année</h3>
-          <p>Pour les professeurs du pilote de février 2027 : votre premier accès à 490 € la première année, puis 690 € garantis pendant 2 ans.</p>
+        <div class="regle">
+          <span class="tag" style="background:rgba(244,196,48,.22);color:#7A5B00">Professeurs bivalents de lycée professionnel</span>
+          <h3>Vos deux disciplines dans un seul accès</h3>
+          <p>Lettres-histoire (français, histoire-géographie, EMC) ou maths-sciences (mathématiques, physique-chimie), du CAP à la terminale professionnelle.</p>
         </div>
         <div class="regle">
           <span class="tag" style="background:rgba(31,122,77,.12);color:var(--canopee)">Voies professionnelle et technologique</span>
@@ -458,16 +474,21 @@ footer a{color:rgba(255,255,255,.8)}
         <div class="regle">
           <span class="tag">Enseignement supérieur · Université, BTS, prépas</span>
           <h3>Un accès = votre formation entière</h3>
-          <p>À l'Université de Guyane, à l'IUT de Kourou et à l'INSPÉ : une licence, une licence professionnelle, un BUT, un master ou le PASS, avec tous ses parcours et toutes ses années. Dans les lycées, un BTS, un BTSA, une classe préparatoire ou le DCG. Exemple : le BUT Réseaux et télécommunications de l'IUT de Kourou couvre le BUT1, le BUT2 et le BUT3. <span data-prix>690</span> € par an, ou 3 × <span data-tiers>230</span> € ; l'offre fondateur s'applique.</p>
+          <p>À l'Université de Guyane, à l'IUT de Kourou et à l'INSPÉ : une licence, une licence professionnelle, un BUT, un master ou le PASS, avec tous ses parcours et toutes ses années. Dans les lycées, un BTS, un BTSA, une classe préparatoire, le DCG ou la mise à niveau. Exemple : le BUT Réseaux et télécommunications de l'IUT de Kourou couvre le BUT1, le BUT2 et le BUT3.</p>
         </div>
         <div class="regle">
-          <span class="tag" style="background:rgba(25,167,168,.14);color:#0F7778">Matières générales, collège et lycée</span>
-          <h3>Un accès = une discipline à un niveau</h3>
-          <p>Exemple : mathématiques en 2nde générale et technologique. Chaque niveau ou discipline en plus : <span data-prix>690</span> € de plus par an.</p>
+          <span class="tag" style="background:rgba(244,196,48,.22);color:#7A5B00">École maternelle et élémentaire</span>
+          <h3>Un accès = toute votre école, toutes matières</h3>
+          <p>Toutes les classes de votre école, de la petite section au CM2 : français, mathématiques, questionner le monde, EMC, arts, EPS… Une classe à plusieurs niveaux compte pour un seul accès.</p>
+        </div>
+        <div class="regle">
+          <span class="tag" style="background:rgba(11,61,46,.08);color:var(--foret)">Plusieurs accès</span>
+          <h3>Chaque accès en plus : <span data-prix>127</span> € par trimestre</h3>
+          <p>Exemple : une discipline et une filière, ou deux disciplines distinctes.</p>
           <div class="calcul">
             <label for="nb-acces" style="flex:1 1 100%">Nombre d'accès : <b id="nb-affiche">1</b></label>
             <input id="nb-acces" type="range" min="1" max="4" value="1">
-            <output id="total" for="nb-acces">690 € / an</output>
+            <output id="total" for="nb-acces">127 € / trimestre</output>
           </div>
         </div>
       </div>
@@ -477,13 +498,13 @@ footer a{color:rgba(255,255,255,.8)}
 
 <section class="outremer" id="outremer">
   <div class="conteneur">
-    <span class="surtitre revele" style="color:var(--or);justify-content:center">Conçu en Guyane</span>
-    <h2 class="revele">Pensé pour les Outre-mer.</h2>
-    <p class="intro revele" style="color:rgba(255,255,255,.85);margin-inline:auto">Des élèves plurilingues, des calendriers scolaires à part, des réalités que les manuels ignorent : ce que nous construisons pour la Guyane parle à tous les territoires ultramarins.</p>
+    <span class="surtitre revele" style="color:var(--or);justify-content:center">Née en Guyane</span>
+    <h2 class="revele">Pensée pour tous les territoires.</h2>
+    <p class="intro revele" style="color:rgba(255,255,255,.85);margin-inline:auto">Des élèves plurilingues, des calendriers scolaires à part, des réalités que les manuels ignorent : ce que nous construisons pour la Guyane parle aux autres territoires d'outre-mer comme aux classes de l'Hexagone. Comme l'alizé qui relie les rivages, ALIZÉ PROF veut relier les territoires et alléger la charge des professeurs.</p>
     <div class="territoires revele">
-      <span class="actif">Guyane</span><span>Guadeloupe</span><span>Martinique</span><span>La Réunion</span><span>Mayotte</span>
+      <span class="actif">Guyane</span><span>Guadeloupe</span><span>Martinique</span><span>La Réunion</span><span>Mayotte</span><span>Hexagone</span>
     </div>
-    <p class="revele" style="margin-top:22px;opacity:.75;font-size:.92rem">Lancement en Guyane. Les autres académies d'Outre-mer viendront ensuite.</p>
+    <p class="revele" style="margin-top:22px;opacity:.75;font-size:.92rem">Le pilote et le catalogue actuel concernent la Guyane. Les autres académies, d'outre-mer et de l'Hexagone, pourront suivre.</p>
   </div>
 </section>
 
@@ -495,11 +516,12 @@ footer a{color:rgba(255,255,255,.8)}
     </div>
     <div class="faq">
       <details class="revele"><summary>Les documents sont-ils vraiment conformes au programme ?</summary><p>Chaque accès s'appuie sur les textes officiels en vigueur (Bulletin officiel, Légifrance, éduscol, Chlorofil), avec leur source et leur date de vérification. Une veille suit les nouveaux textes et les rénovations de diplômes. Vous restez le pédagogue : vous relisez, vous ajustez, vous décidez.</p></details>
-      <details class="revele"><summary>Que couvre exactement un accès ?</summary><p>À l'école, un accès couvre votre classe dans toutes ses matières. En voie professionnelle et technologique, un accès couvre toute votre filière : tous ses diplômes et toutes ses classes. En matière générale, au collège comme au lycée, un accès couvre une discipline à un niveau, par exemple le français en 4e. Dans l'enseignement supérieur (Université de Guyane, dont l'IUT de Kourou et l'INSPÉ) et après le bac dans les lycées (BTS, BTSA, classes préparatoires, DCG), un accès couvre une formation entière : une licence, un BUT, un master, un BTS ou une classe préparatoire, avec tous ses parcours et toutes ses années. Chaque accès coûte 690 € par an (390 € pour une classe d'école), payables en une fois ou en 3 fois sans frais. Les professeurs du pilote bénéficient de l'offre fondateur : 490 € la première année.</p></details>
+      <details class="revele"><summary>Que couvre exactement un accès ?</summary><p>En matière générale (collège, lycée, post-bac), un accès couvre votre discipline pour toutes vos classes de l'établissement : par exemple le français de la 6e à la 3e, ou les mathématiques de la 2nde au BTS. Sur deux établissements, il couvre les classes des deux ; si vous changez d'établissement, vous le gardez. Les professeurs bivalents de lycée professionnel (lettres-histoire, maths-sciences) ont leurs deux disciplines dans un seul accès. En voie professionnelle et technologique, un accès couvre toute votre filière : tous ses diplômes et toutes ses classes. Dans l'enseignement supérieur (Université de Guyane, dont l'IUT de Kourou et l'INSPÉ) et après le bac dans les lycées (BTS, BTSA, classes préparatoires, DCG), un accès couvre une formation entière, avec tous ses parcours et toutes ses années. À l'école, un accès couvre toutes les classes de votre école, toutes matières. Chaque accès coûte 127 € par trimestre, sans engagement.</p></details>
+      <details class="revele"><summary>Puis-je arrêter quand je veux ?</summary><p>Oui. L'abonnement est payé tous les 3 mois et reconduit automatiquement, mais vous pouvez le résilier à tout moment, en ligne, depuis votre compte. Votre accès reste ouvert jusqu'à la fin du trimestre déjà payé ; il n'y a pas de remboursement au prorata. Avant chaque reconduction, vous recevez un courriel qui vous rappelle la date limite pour ne pas reconduire.</p></details>
       <details class="revele"><summary>Et les données de mes élèves ?</summary><p>La plateforme est réservée aux professeurs. Aucune donnée d'élève n'est demandée, et aucun nom, aucune adresse ni aucune information personnelle n'est transmise à l'IA. Les données seront hébergées dans l'Union européenne.</p></details>
       <details class="revele"><summary>Mes élèves pourront-ils l'utiliser ?</summary><p>Pas pour le moment : la plateforme est un outil pour les professeurs. Un espace de révision pour les élèves pourra venir plus tard.</p></details>
-      <details class="revele"><summary>L'IA fait-elle le travail à ma place ?</summary><p>Elle vous fait gagner le temps de préparation : lecture du référentiel, structure, premier jet des documents. La pédagogie reste la vôtre. Et pour vos élèves, elle propose justement des devoirs qu'une IA ne peut pas faire à leur place.</p></details>
-      <details class="revele"><summary>Quand pourrai-je l'utiliser ?</summary><p>Un pilote avec des professeurs de Guyane est prévu de février à mars 2027, avant le lancement. Rejoignez-le pour tester la plateforme parmi les premiers et nous aider à l'améliorer.</p></details>
+      <details class="revele"><summary>TOUCAN IA fait-elle le travail à ma place ?</summary><p>Non. TOUCAN IA, l'IA d'ALIZÉ PROF, vous fait gagner le temps de préparation : lecture du référentiel, structure, premier jet des documents. La pédagogie reste la vôtre. Et pour vos élèves, elle propose justement des devoirs qu'une IA ne peut pas faire à leur place.</p></details>
+      <details class="revele"><summary>Quand pourrai-je utiliser ALIZÉ PROF ?</summary><p>Un pilote avec des professeurs de Guyane est prévu de février à mars 2027, avant le lancement. Rejoignez-le pour tester la plateforme parmi les premiers et nous aider à l'améliorer.</p></details>
     </div>
   </div>
 </section>
@@ -515,7 +537,7 @@ footer a{color:rgba(255,255,255,.8)}
         <label>Adresse électronique<input name="courriel" type="email" required maxlength="254" autocomplete="email"></label>
         <label>Commune<input name="commune" maxlength="80"></label>
         <label>Établissement<input name="etablissement" maxlength="200"></label>
-        <label class="large">Filière, discipline et niveau, classe d'école ou formation du supérieur<input name="acces_souhaite" maxlength="300" placeholder="Ex. : commerce-vente ; maths en 5e ; CE1 ; BUT GEII"></label>
+        <label class="large">Discipline, filière, école ou formation du supérieur<input name="acces_souhaite" maxlength="300" placeholder="Ex. : commerce-vente ; mathématiques ; lettres-histoire ; école ; BUT GEII"></label>
         <label class="large">Message (facultatif)<textarea name="message" rows="3" maxlength="2000"></textarea></label>
         <label class="piege" aria-hidden="true">Site web<input name="site_web" tabindex="-1" autocomplete="off"></label>
       </div>
@@ -528,7 +550,7 @@ footer a{color:rgba(255,255,255,.8)}
 
 <footer>
   <div class="conteneur">
-    <span>© <span id="annee"></span> UNIQUE CONSULTING – PEDA GUYANE ASSISTANCE</span>
+    <span>© <span id="annee"></span> UNIQUE CONSULTING – ALIZÉ PROF · TOUCAN IA</span>
     <span><a href="legal/mentions-legales.html">Mentions légales</a> · <a href="legal/confidentialite.html">Confidentialité</a> · <a href="legal/cgu.html">CGU</a> · <a href="legal/cgv.html">CGV</a></span>
   </div>
 </footer>

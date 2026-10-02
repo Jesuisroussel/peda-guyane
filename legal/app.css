@@ -12,8 +12,7 @@ p.intro{color:var(--doux);margin-bottom:18px}
 .entete-in{max-width:1080px;margin:0 auto;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .marque{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:800;letter-spacing:-.01em}
 .marque small{display:block;font-weight:500;font-size:.7rem;opacity:.75}
-.marque i{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--or) 50%,var(--canopee) 50%);position:relative}
-.marque i::after{content:"★";position:absolute;inset:0;display:grid;place-items:center;color:var(--etoile);font-style:normal;font-size:15px}
+.marque svg{width:32px;height:32px;flex:none}
 .compte{display:flex;align-items:center;gap:12px;font-size:.92rem}
 .compte span{opacity:.85}
 .lien-clair{color:#fff;background:none;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:6px 14px;cursor:pointer;font:inherit;text-decoration:none}
@@ -82,7 +81,7 @@ th{background:var(--sable);font-weight:700}
 .page-legale h2{margin-top:26px}
 .page-legale table{margin:10px 0}
 .page-legale ul{padding-left:22px;margin:8px 0}
-.page-legale p{margin:8px 0}
+.page-legale p{margin:8px 0;overflow-wrap:anywhere}
 
 .case{display:flex;gap:10px;align-items:flex-start;font-weight:500;margin:6px 0 16px;padding:12px 14px;background:var(--sable);border-radius:12px;border:1px solid var(--bord)}
 .case input{width:auto;margin-top:4px}
